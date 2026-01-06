@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: right.of.access.request.prototype
-  title: Right-of-Access-Request-Prototype
+  name: Right.Of.Access.Request.Prototype
+  title: Right-Of-Access-Request-Prototype
   description: |
     Prototype to explore design options of Right of access request online journey.
 
