@@ -1,5 +1,5 @@
 {
-  "serviceName": "Service name goes here",
+  "serviceName": "Right of access request",
   "plugins": {
     "govuk-frontend": {
       "rebrand": true
