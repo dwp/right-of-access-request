@@ -1,0 +1,29 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Email address confirmed" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="#" method="post">
+
+      <h1 class="govuk-heading-xl">Email address confirmed</h1>
+
+      {{ govukInsetText({
+        text: "We've confirmed the email address: email@email.com"
+      }) }}
+
+      <p class="govuk-body">
+        We'll use it to send you the link to download your information when it's ready.
+      </p>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your email" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="email-address-confirmed" method="post">
+
+      <h1 class="govuk-heading-xl">Check your email</h1>
+
+      {{ govukInsetText({
+        text: "We have sent an email to: email@email.com"
+      }) }}
+
+      <p class="govuk-body">
+        You'll need to click the link in the email to continue. It expires after 10 minutes.
+      </p>
+
+      <p class="govuk-body">
+        If you cannot find the email:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Check your spam or junk folder</li>
+        <li>Wait a few minutes and check again</li>
+        <li>Re-send the email</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Change email address</a>
+      </p>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

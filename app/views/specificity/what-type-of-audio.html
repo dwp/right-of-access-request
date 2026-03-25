@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What type of audio do you need?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="how-would-you-like-to-receive-your-transcript" method="post">
+
+      {{ govukRadios({
+        name: "whatTypeOfAudio",
+        fieldset: {
+          legend: {
+            text: pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "mp3",
+            text: "MP3 file by download"
+          },
+          {
+            value: "cd",
+            text: "CD"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "writtenTranscript",
+            text: "Written transcript"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

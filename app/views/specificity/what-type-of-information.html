@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What type of information do you need?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="list-of-benefits" method="post">
+
+      {{ govukCheckboxes({
+        name: "waste",
+        fieldset: {
+          legend: {
+            text: pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "callRecording",
+            text: "Call recordings"
+          },
+          {
+            value: "cctv",
+            text: "CCTV recordings"
+          },
+          {
+            value: "otherInformation",
+            text: "Other information",
+            hint: {
+              text: "for example, letters or medical reports"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

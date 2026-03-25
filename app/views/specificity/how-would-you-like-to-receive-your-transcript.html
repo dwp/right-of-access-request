@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="How would you like to receive your transcript?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="what-is-your-email-address" method="post">
+
+      {{ govukRadios({
+        name: "whatFormat",
+        fieldset: {
+          legend: {
+            text: pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "pdf",
+            text: "PDF file by download"
+          },
+          {
+            value: "paper",
+            text: "Paper"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is your email address?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="check-your-email" method="post">
+
+      {{ govukInput({
+        label: {
+          text: pageName,
+          classes: "govuk-label--xl",
+          isPageHeading: true
+        },
+        hint: {
+          text: "We'll use it to let you know we received your application and tell you when your information is ready."
+        },
+        id: "event-name",
+        name: "eventName"
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
