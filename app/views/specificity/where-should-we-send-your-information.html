@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Where should we send your information?" %}
+
+{% set fullAddress %}
+  {{ data.addressLine1 }}<br>
+  {% if data.addressLine2 %}{{ data.addressLine2 }}<br>{% endif %}
+  {{ data.addressTown }}<br>
+  {% if data.addressCounty %}{{ data.addressCounty }}<br>{% endif %}
+  {{ data.addressPostcode }}
+{% endset %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="how-would-you-like-to-receive-your-transcript" method="post">
+
+      {{ govukRadios({
+        name: "whereShouldWeSendYourInformation",
+        fieldset: {
+          legend: {
+            text: pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "given-address",
+            html: "<strong>The address you gave earlier:</strong><br>" + fullAddress
+          },
+          {
+            value: "different-address",
+            text: "A different address"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

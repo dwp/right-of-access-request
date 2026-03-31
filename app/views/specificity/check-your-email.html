@@ -8,32 +8,35 @@
   <div class="govuk-grid-column-two-thirds">
     <form class="form" action="email-address-confirmed" method="post">
 
-      <h1 class="govuk-heading-xl">Check your email</h1>
+      <h1 class="govuk-heading-xl">{{pageName}}</h1>
 
-      {{ govukInsetText({
-        text: "We have sent an email to: email@email.com"
-      }) }}
+      <div class="govuk-inset-text">
+            <p class="govuk-body">
+                We have sent an email to:
+                <strong class="govuk-!-font-weight-bold">
+                    {% if data['email-address'] %}
+                        {{ data['email-address'] | lower }}
+                    {% else %} 
+                        email@email.com
+                    {% endif %}
+                </strong>
+            </p>
+        </div>
 
       <p class="govuk-body">
-        You'll need to click the link in the email to continue. It expires after 10 minutes.
+        You'll need to click the link in the email to continue.
       </p>
 
       <p class="govuk-body">
-        If you cannot find the email:
+        Your email might take a few minutes to arrive. If you do not get an email, check your spam folder.
       </p>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Check your spam or junk folder</li>
-        <li>Wait a few minutes and check again</li>
-        <li>Re-send the email</li>
-      </ul>
-
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+      <p class="govuk-body">
+        The link will expire after 10 minutes.
+      </p>
 
       <p class="govuk-body">
-        <a href="#" class="govuk-link">Change email address</a>
+        <a href="#" class="govuk-link">Send the link again</a> or <a href="#" class="govuk-link">Change email address</a>
       </p>
 
     </form>
