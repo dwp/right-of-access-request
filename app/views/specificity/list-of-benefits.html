@@ -1,5 +1,7 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/user-journey.html" %}
 
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
 
 {% if data['type-of-request'] == "call-recording" %}
   {% set pageName = "Which benefits or services is your call recording request about?" %}
