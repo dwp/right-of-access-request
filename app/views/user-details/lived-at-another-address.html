@@ -3,17 +3,17 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName="What is your date of birth?" %}
+{% set pageName="Have you lived at another address in the last 5 years?" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="live-in-uk" method="post">
+        <form class="form" action="/wip" method="post">
 
-            {{ govukDateInput({
-                id: "dob",
-                namePrefix: "dob",
+            {{ govukRadios({
+                classes: "govuk-radios--inline",
+                name: "changed-name",
                 fieldset: {
                     legend: {
                     text: pageName,
@@ -22,23 +22,16 @@
                     }
                 },
                 hint: {
-                    text: "For example, 31 3 1980"
+                    text: "This includes changing your last name or spelling your name differently"
                 },
                 items: [
                     {
-                    name: "day",
-                    classes: "govuk-input--width-2",
-                    autocomplete: "bday-day"
+                    value: "yes",
+                    text: "Yes"
                     },
                     {
-                    name: "month",
-                    classes: "govuk-input--width-2",
-                    autocomplete: "bday-month"
-                    },
-                    {
-                    name: "year",
-                    classes: "govuk-input--width-4",
-                    autocomplete: "bday-year"
+                    value: "no",
+                    text: "No"
                     }
                 ]
             }) }}
