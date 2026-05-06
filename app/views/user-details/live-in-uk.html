@@ -1,0 +1,44 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName="Do you live in UK?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/do-you-live-in-uk" method="post">
+
+            {{ govukRadios({
+                classes: "govuk-radios--inline",
+                name: "live-in-uk",
+                fieldset: {
+                    legend: {
+                    text: pageName,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

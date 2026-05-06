@@ -7,3 +7,25 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
+
+//Route for Have you changed your name?
+router.post('/known-another-name', function(request, response) {
+
+    var knownAnotherName = request.session.data['changed-name']
+    if (knownAnotherName == "yes"){
+        response.redirect("/user-details/previous-name")
+    } else {
+        response.redirect("/user-details/dob")
+    }
+})
+
+//Route for Do you live in UK?
+router.post('/do-you-live-in-uk', function(request, response) {
+
+    var liveInUk = request.session.data['live-in-uk']
+    if (liveInUk == "yes"){
+        response.redirect("/user-details/uk-address")
+    } else {
+        response.redirect("/user-details/address-abroad")
+    }
+})
