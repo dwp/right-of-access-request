@@ -1,0 +1,35 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName="What was your previous address?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="national-insurance-number" method="post">
+
+            {{ govukTextarea({
+                name: "moreDetail",
+                id: "more-detail",
+                label: {
+                    text: pageName,
+                    classes: "govuk-label--l",
+                    isPageHeading: true
+                },
+                hint: {
+                    text: "Enter all the addresses you lived in the last 5 years, including any address you lived abroad"
+                }
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

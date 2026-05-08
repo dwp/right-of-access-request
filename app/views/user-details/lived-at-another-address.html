@@ -9,20 +9,17 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/wip" method="post">
+        <form class="form" action="/lived-another-address" method="post">
 
             {{ govukRadios({
                 classes: "govuk-radios--inline",
-                name: "changed-name",
+                name: "lived-another-address",
                 fieldset: {
                     legend: {
                     text: pageName,
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--l"
                     }
-                },
-                hint: {
-                    text: "This includes changing your last name or spelling your name differently"
                 },
                 items: [
                     {

@@ -29,3 +29,14 @@ router.post('/do-you-live-in-uk', function(request, response) {
         response.redirect("/user-details/address-abroad")
     }
 })
+
+//Route for Have you lived at another address in the last 5 years?
+router.post('/lived-another-address', function(request, response) {
+
+    var liveInUk = request.session.data['lived-another-address']
+    if (liveInUk == "yes"){
+        response.redirect("/user-details/where-was-your-previous-address")
+    } else {
+        response.redirect("/user-details/national-insurance-number")
+    }
+})
