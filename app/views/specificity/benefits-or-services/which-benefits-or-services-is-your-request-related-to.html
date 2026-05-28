@@ -1,0 +1,58 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'false' %}
+
+{% set pageName="Which benefit or service is your request about?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="benefits-or-services-list" method="post">
+
+      {{ govukCheckboxes({
+        name: "benefitsOrServicesList",
+        fieldset: {
+          legend: {
+            text: pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "attendance-allowance",
+            text: "Attendance allowance"
+          },
+          {
+            value: "universal-credit",
+            text: "Universal Credit"
+          },
+          {
+            value: "universal-credit",
+            text: "Personal Independent Payment (PIP)"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "none",
+            text: "I do not know",
+            behaviour: "exclusive"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

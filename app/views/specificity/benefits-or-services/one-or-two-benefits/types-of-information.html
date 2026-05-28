@@ -1,25 +1,23 @@
 {% extends "layouts/user-journey.html" %}
 
 {% set phaseBanner = 'true' %}
-{% set backLink = 'true' %}
+{% set backLink = 'false' %}
 
-{% if data['type-of-request'] == "call-recording" %}
-  {% set pageName = "Which benefits or services is your call recording request about?" %}
-{% endif %}
+{% set pageName="Select the types of information you want to request about Attendance Allowance" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="what-type-of-audio" method="post">
+    <form class="form" action="benefits-or-services-list" method="post">
 
       {{ govukCheckboxes({
-        name: "listOfBenefits",
+        name: "typesOfInformation",
         fieldset: {
           legend: {
             text: pageName,
             isPageHeading: true,
-            classes: "govuk-fieldset__legend--xl"
+            classes: "govuk-fieldset__legend--l"
           }
         },
         hint: {
@@ -27,23 +25,19 @@
         },
         items: [
           {
-            value: "france",
-            text: "France"
+            value: "call-recordings",
+            text: "Call recordings"
           },
           {
-            value: "portugal",
-            text: "Portugal"
-          },
-          {
-            value: "spain",
-            text: "Spain"
+            value: "case-notes",
+            text: "Case notes"
           },
           {
             divider: "or"
           },
           {
-            value: "none",
-            text: "No, I will not be travelling to any of these countries",
+            value: "something-else",
+            text: "Something else",
             behaviour: "exclusive"
           }
         ]
@@ -52,7 +46,7 @@
       {{ govukButton({
         text: "Continue"
       }) }}
-      
+
     </form>
   </div>
 </div>

@@ -1,0 +1,51 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'false' %}
+
+{% set pageName = "Which job centre was the footage recorded in?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="date-and-time" method="post">
+
+      <h1 class="govuk-heading-l">
+        {{ pageName }}
+      </h1>
+
+      <p class="govuk-body govuk-!-margin-bottom-7">
+        We can only provide CCTV or body worn camera footage from DWP job centres. Footage will not have audio.
+      </p>
+
+      {{ govukInput({
+        label: {
+          text: "Job centre name",
+          classes: "govuk-label--m"
+        },
+        id: "job-centre-name",
+        name: "jobCentreName"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Job centre postcode",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-input--width-10",
+        id: "address-postcode",
+        name: "addressPostcode",
+        autocomplete: "postal-code"
+      }) }}
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

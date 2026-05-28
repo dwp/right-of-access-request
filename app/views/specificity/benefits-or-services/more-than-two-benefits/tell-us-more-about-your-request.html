@@ -1,0 +1,41 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'false' %}
+
+{% set pageName = "Tell us more about your request" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="benefits-or-services-list" method="post">
+
+      <h1 class="govuk-heading-l">
+        {{ pageName }}
+      </h1>
+
+      <p class="govuk-body govuk-!-margin-bottom-7">
+        Tell us about the information you need.  Be as specific as you can.
+      </p>
+
+      {{ govukTextarea({
+        name: "moreDetail",
+        id: "more-detail",
+        rows: "8",
+        label: {
+          text: "Request details",
+          classes: "govuk-label--m"
+        }
+      }) }}
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

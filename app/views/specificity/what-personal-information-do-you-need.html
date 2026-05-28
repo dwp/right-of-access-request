@@ -1,23 +1,23 @@
 {% extends "layouts/user-journey.html" %}
 
 {% set phaseBanner = 'true' %}
-{% set backLink = 'true' %}
+{% set backLink = 'false' %}
 
-{% set pageName="What type of information do you need?" %}
+{% set pageName="What personal information do you need?" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="list-of-benefits" method="post">
+    <form class="form" action="personal-information-you-need" method="post">
 
       {{ govukCheckboxes({
-        name: "type-of-request",
+        name: "personalInformationYouNeed",
         fieldset: {
           legend: {
             text: pageName,
             isPageHeading: true,
-            classes: "govuk-fieldset__legend--xl"
+            classes: "govuk-fieldset__legend--l"
           }
         },
         hint: {
@@ -25,18 +25,14 @@
         },
         items: [
           {
-            value: "call-recording",
-            text: "Call recordings"
+            value: "benefits-or-services",
+            text: "Benefits or services"
           },
           {
-            value: "cctv",
-            text: "CCTV recordings"
-          },
-          {
-            value: "other-information",
-            text: "Other information",
+            value: "cctv-or-body-worn-camera-footage",
+            text: "CCTV or body worn camera footage",
             hint: {
-              text: "for example, letters or medical reports"
+              text: "We only keep footage from the last 30 days. It does not include sound"
             }
           }
         ]

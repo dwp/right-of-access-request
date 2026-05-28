@@ -1,5 +1,5 @@
 {
-  "serviceName": "Right of access request",
+  "serviceName": "Request your personal information from DWP",
   "plugins": {
     "govuk-frontend": {
       "rebrand": true

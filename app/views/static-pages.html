@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Page index" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {{pageName}}
+    </h1>
+
+    <h2 class="govuk-heading-m">
+      Specificity
+    </h2>
+
+    <p class="govuk-body">
+      <a href="/specificity/what-personal-information-do-you-need" class="govuk-link govuk-link--no-visited-state">
+        What personal information do you need
+      </a>
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a href="/specificity/benefits-or-services/which-benefits-or-services-is-your-request-related-to" class="govuk-link govuk-link--no-visited-state">
+          Which benefit or service is your request about
+        </a>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>One or two benefits
+            <ul class="govuk-list govuk-list--bullet">
+              <li>
+                <a href="/specificity/benefits-or-services/one-or-two-benefits/types-of-information" class="govuk-link govuk-link--no-visited-state">
+                  Types of information
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+          </li>
+          <li>More than two benefits
+            <ul class="govuk-list govuk-list--bullet">
+              <li>
+                <a href="/specificity/benefits-or-services/more-than-two-benefits/what-time-period-do-you-need-information-for" class="govuk-link govuk-link--no-visited-state">
+                  Enter the start and end dates for the information you need
+                </a>
+              </li>
+              <li>
+                <a href="/specificity/benefits-or-services/more-than-two-benefits/tell-us-more-about-your-request" class="govuk-link govuk-link--no-visited-state">
+                  Tell us more about your request
+                </a>
+              </li>
+              <li>
+                How should we write to you
+              </li>
+          </li>
+        </ul>
+      </li>
+      <li>
+        CCTV or body worn camera footage
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="/specificity/cctv-or-body-worn-camera-footage/which-job-centre-was-the-footage-recorded-in" class="govuk-link govuk-link--no-visited-state">
+              Which job centre was the footage recorded in
+            </a>
+          </li>
+          <li>
+            <a href="/specificity/cctv-or-body-worn-camera-footage/date-and-time" class="govuk-link govuk-link--no-visited-state">
+              Date and time
+            </a>
+          </li>
+          <li>
+            What happened in the footage
+          </li>
+          <li>
+            What do you look like in the footage
+          </li>
+          <li>
+            Where should we send your footage
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+{% endblock %}

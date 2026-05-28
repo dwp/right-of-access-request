@@ -1,0 +1,43 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "Date and time" %}
+
+{% set thirtyDaysAgo = "" | dateMinusDays(30) %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="date-and-time" method="post">
+
+      <h1 class="govuk-heading-l">
+        {{ pageName }}
+      </h1>
+
+      {{ govukDateInput({
+        id: "footage-recorded-date",
+        namePrefix: "footage-recorded-date",
+        fieldset: {
+          legend: {
+            text: "When was the footage recorded",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "For example, from " + thirtyDaysAgo
+        }
+      }) }}
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

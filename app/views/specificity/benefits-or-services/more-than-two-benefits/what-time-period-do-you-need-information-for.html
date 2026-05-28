@@ -1,0 +1,59 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'false' %}
+
+{% set pageName = "Enter the start and end dates for the information you need" %}
+
+{% set range = "" | dateRangeYearsAgo(2, 1) %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="tell-us-more-about-your-request" method="post">
+
+      <h1 class="govuk-heading-l">
+        {{ pageName }}
+      </h1>
+
+      <p class="govuk-body">
+        For example, from {{ range.from }} to {{ range.to }}
+      </p>
+
+      <p class="govuk-body govuk-!-margin-bottom-7">
+        If you do not know the exact dates, enter approximate dates.
+      </p>
+
+      {{ govukDateInput({
+        id: "passport-issued",
+        namePrefix: "passport-issued",
+        fieldset: {
+          legend: {
+            text: "Start date",
+            classes: "govuk-fieldset__legend--m"
+          }
+        }
+      }) }}
+
+      {{ govukDateInput({
+        id: "passport-issued",
+        namePrefix: "passport-issued",
+        fieldset: {
+          legend: {
+            text: "End date",
+            classes: "govuk-fieldset__legend--m"
+          }
+        }
+      }) }}
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
