@@ -1,0 +1,46 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "How many calls is this request about?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="phone-number-used-for-the-call" method="post">
+
+      {{ govukRadios({
+        name: "signIn",
+        fieldset: {
+          legend: {
+            text: pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "We can only provide call recordings from the last 24 months."
+        },
+        items: [
+          {
+            value: "one",
+            text: "One"
+          },
+          {
+            value: "two-or-more",
+            text: "Two or more"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
