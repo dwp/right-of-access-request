@@ -1,0 +1,39 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "When did the call happen?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="tell-us-more-about-the-call" method="post">
+
+      <!-- This page will need updated hint text or content when Darren updates the Confluence content page -->
+
+      {{ govukDateInput({
+        id: "date-call-taken-place",
+        namePrefix: "date-call-taken-place",
+        fieldset: {
+          legend: {
+            text: pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "We usually keep call recordings from the last 24 months. For example, [dated to two years back from today]. If you’re not sure, enter an approximate date."
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

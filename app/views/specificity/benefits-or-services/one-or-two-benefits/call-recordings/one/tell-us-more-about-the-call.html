@@ -3,7 +3,7 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "Tell us more about your request" %}
+{% set pageName = "Tell us more about the call" %}
 
 {% block content %}
 
@@ -16,15 +16,22 @@
       </h1>
 
       <p class="govuk-body">
-        Tell us about the information you need.  Be as specific as you can.
+        Tell us anything else you remember. For example:
       </p>
 
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the approximate time of the call</li>
+        <li>the name of the person you spoke to</li>
+        <li>what the call was about</li>
+        <li>if you were transferred</li>
+      </ul>
+
       {{ govukTextarea({
-        name: "moreDetail",
-        id: "more-detail",
+        name: "callDetail",
+        id: "call-detail",
         rows: "8",
         label: {
-          text: "Request details",
+          text: "Call details",
           classes: "govuk-label--m"
         }
       }) }}
