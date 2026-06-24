@@ -40,3 +40,25 @@ router.post('/lived-another-address', function(request, response) {
         response.redirect("/user-details/national-insurance-number")
     }
 })
+
+//Route for adding multiple phone numbers
+
+router.post('/which-phone-number', function (req, res) {
+
+    let numbers = req.session.data.phoneNumbers || []
+    let newNumber = req.body.phoneNumber
+
+    if (newNumber) {
+        numbers.push(newNumber)
+    }
+
+    req.session.data.phoneNumbers = numbers
+
+    if (req.body.action === "add") {
+        return res.redirect('/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/add-another-phone-number')
+    }
+
+    // Continue button
+    res.redirect('/next-page')
+
+})
