@@ -59,6 +59,28 @@ router.post('/which-phone-number', function (req, res) {
     }
 
     // Continue button
-    res.redirect('/next-page')
+    res.redirect('/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/give-a-detailed-description')
 
 })
+
+//Remove functionality for removing the numbers
+router.get('/remove-phone/:index', function (req, res) {
+
+    let numbers = req.session.data.phoneNumbers || []
+
+    // Convert index to number
+    let index = parseInt(req.params.index)
+
+    // Remove the item
+    if (!isNaN(index)) {
+        numbers.splice(index, 1)
+    }
+
+    // Save updated list
+    req.session.data.phoneNumbers = numbers
+
+    // Redirect back to the page
+    res.redirect('/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/add-another-phone-number')
+
+})
+

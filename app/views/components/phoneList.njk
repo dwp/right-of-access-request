@@ -9,14 +9,20 @@
 
     {% for number in numbers %}
       
-      <li class="govuk-clearfix govuk-!-margin-bottom-2">
+      <li class="govuk-!-margin-bottom-2">
 
-        <div class="govuk-!-float-left">
-          {{ number }}
-        </div>
+        <div class="govuk-grid-row">
 
-        <div class="govuk-!-float-right">
-          <a href="#" class="govuk-link">Remove</a>
+          <div class="govuk-grid-column-two-thirds">
+            {{ number }}
+          </div>
+
+          <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+            <a href="/remove-phone/{{ loop.index0 }}" class="govuk-link">
+              Delete<span class="govuk-visually-hidden"> phone number {{ number }}</span>
+            </a>
+          </div>
+
         </div>
 
       </li>
