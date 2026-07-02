@@ -9,7 +9,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="phone-number-used-for-the-call" method="post">
+    <form class="form" action="/mp3-or-cd" method="post">
 
       {{ govukRadios({
         name: "signIn",
@@ -20,17 +20,20 @@
             classes: "govuk-fieldset__legend--l"
           }
         },
-        hint: {
-          text: "We can only provide call recordings from the last 24 months."
-        },
         items: [
           {
-            value: "one",
-            text: "One"
+            value: "mp3",
+            text: "Digital audio file (MP3)",
+            hint: {
+              text: "We’ll send a link to your email to download a file"
+            }
           },
           {
-            value: "two-or-more",
-            text: "Two or more"
+            value: "compactDisc",
+            text: "CD (compact disc)",
+            hint: {
+              text: "We’ll post a CD to the address you give us"
+            }
           }
         ]
       }) }}

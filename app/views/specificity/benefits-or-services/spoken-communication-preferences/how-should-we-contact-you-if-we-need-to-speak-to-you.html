@@ -1,0 +1,100 @@
+{% extends "layouts/user-journey.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "How should we contact you if we need to speak to you?" %}
+
+{% set phoneHtml %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contactByPhone",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Phone number"
+  }
+}) }}
+{% endset -%}
+
+{% set relayHtml %}
+{{ govukInput({
+  id: "contact-by-relay",
+  name: "contactByRelay",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Relay UK number"
+  }
+}) }}
+{% endset -%}
+
+{% set otherContactOptionHtml %}
+{{ govukInput({
+  id: "other-contact-preference",
+  name: "otherContactPreference",
+  label: {
+    text: "Tell us what you need"
+  }
+}) }}
+{% endset -%}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="/contact-preferences" method="post">
+
+      {{ govukRadios({
+        name: "contact-preferences",
+        fieldset: {
+          legend: {
+            text: pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "phoneCall",
+            text: "Standard phone call",
+            conditional: {
+              html: phoneHtml
+            }
+          },
+          {
+            value: "relay",
+            text: "Relay UK",
+            conditional: {
+              html: relayHtml
+            }
+          },
+          {
+            value: "signingOrlipspeaking",
+            text: "Signing or lipspeaking"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "iNeedSomethingDifferent",
+            text: "I need something different",
+            conditional: {
+              html: otherContactOptionHtml
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

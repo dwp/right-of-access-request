@@ -1,0 +1,38 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "Check your email" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+    </h1>
+
+    {% call govukInsetText() %}
+      We have sent an email to [email-address]
+    {% endcall %}
+
+    <p class="govuk-body">
+      Click the link in the email to confirm your email address.
+    </p>
+
+    <p class="govuk-body">
+      Your email might take a few minutes to arrive. If you do not get an email, check your spam folder.
+    </p>
+
+    {% call govukDetails({
+      summaryText: "Email not received?"
+    }) %}
+      <p class="govuk-body">We can send you <a href="#" class="govuk-link">another email</a> or you can <a href="#" class="govuk-link">use a different email address</a>.</p>
+    {% endcall %}
+    
+  </div>
+</div>
+
+{% endblock %}

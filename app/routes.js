@@ -84,3 +84,25 @@ router.get('/remove-phone/:index', function (req, res) {
 
 })
 
+//Route for contact preferences?
+router.post('/contact-preferences', function(request, response) {
+
+    var contactPreferences = request.session.data['contact-preferences']
+    if (contactPreferences == "signingOrlipspeaking"){
+        response.redirect("/specificity/benefits-or-services/spoken-communication-preferences/what-signing-or-lipspeaking-service-do-you-need")
+    } else {
+        response.redirect("/specificity/benefits-or-services/spoken-communication-preferences/do-you-need-any-other-help-when-we-contact-you")
+    }
+})
+
+//Route for do you need any other help when we contact you?
+router.post('/other-help-when-we-contact-you', function(request, response) {
+
+    var contactPreferences = request.session.data['otherHelp']
+    if (contactPreferences == "yes"){
+        response.redirect("/specificity/benefits-or-services/spoken-communication-preferences/what-other-help-do-you-need-when-we-contact-you")
+    } else {
+        response.redirect("/user-details/wip")
+    }
+})
+
