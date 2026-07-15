@@ -3,17 +3,16 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName="Do you need any other help when we contact you?" %}
+{% set pageName = "What type of audio do you need?" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/other-help-when-we-contact-you" method="post">
+        <form class="form" action="/delivery-format-and-address/spoken-communication-preferences/how-should-we-contact-you-if-we-need-to-speak-to-you" method="post">
 
             {{ govukRadios({
-                classes: "govuk-radios--inline",
-                name: "otherHelp",
+                name: "audioFormatOptions",
                 fieldset: {
                     legend: {
                     text: pageName,
@@ -21,17 +20,22 @@
                     classes: "govuk-fieldset__legend--l"
                     }
                 },
-                hint: {
-                  text: "This might include another way to write or speak to you, or help with understanding information we send you."
-                },
                 items: [
                     {
-                    value: "yes",
-                    text: "Yes"
+                        value: "CD",
+                        text: "CD"
                     },
                     {
-                    value: "no",
-                    text: "No"
+                        value: "MP3",
+                        text: "MP3 file"
+                    },
+                    {
+                        value: "cassette",
+                        text: "Casette tape"
+                    },
+                    {
+                        value: "DVD",
+                        text: "DVD"
                     }
                 ]
             }) }}

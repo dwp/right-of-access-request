@@ -1,0 +1,38 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "Confirm your identity" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="name-a-dwp-payment-you-are-currently-receiving" method="post">
+
+            <h1 class="govuk-heading-l">
+                {{pageName}}
+            </h1>
+
+            <p class="govuk-body">
+                We need to confirm your identity before we process your request. This is to protect your personal information.
+            </p>
+
+            <p class="govuk-body">
+                We’ll ask you some questions about payments you may receive from DWP, including benefits and State Pension.
+            </p>
+
+            <p class="govuk-body">
+                If you cannot answer these questions, you can still request your information. We’ll call you to confirm your identity. If we can’t contact you by phone, we’ll send you a letter explaining what to do next.
+            </p>
+
+            {{ govukButton({
+            text: "Continue"
+            }) }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

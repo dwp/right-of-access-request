@@ -1,0 +1,66 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName="How should we write to you?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/other-help-when-we-contact-you" method="post">
+
+            {{ govukRadios({
+                name: "otherHelp",
+                fieldset: {
+                    legend: {
+                    text: pageName,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    text: "Select the best option for you."
+                },
+                items: [
+                    {
+                    value: "standardLetter",
+                    text: "Standard letter (12-point Arial text on white paper)"
+                    },
+                    {
+                    value: "letterWithChanges",
+                    text: "Letter with changes to font, paper colour, spacing or print size"
+                    },
+                    {
+                    value: "audio",
+                    text: "Audio"
+                    },
+                    {
+                    value: "braille",
+                    text: "Braille"
+                    },
+                    {
+                    value: "bsl",
+                    text: "British Sign Language video"
+                    },
+                    {
+                    value: "microsoftWordDoc",
+                    text: "Microsoft Word document"
+                    },
+                    {
+                    value: "PDF",
+                    text: "PDF"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "What is the weekly or monthly amount of the benefit?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="when-did-you-receive-you-last-payment" method="post">
+
+            {{ govukInput({
+                id: "cost",
+                name: "cost",
+                label: {
+                    text: pageName,
+                    classes: "govuk-label--l",
+                    isPageHeading: true
+                },
+                prefix: {
+                    text: "£"
+                },
+                classes: "govuk-input--width-5",
+                spellcheck: false
+            }) }}
+
+            {{ govukButton({
+            text: "Continue"
+            }) }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

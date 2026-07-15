@@ -3,32 +3,34 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "Tell us more about your request" %}
+{% set pageName = "What happened in the footage?" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="benefits-or-services-list" method="post">
+    <form class="form" action="what-do-you-look-like-in-the-footage" method="post">
 
       <h1 class="govuk-heading-l">
         {{ pageName }}
       </h1>
 
       <p class="govuk-body">
-        Tell us about the information you need. Be as specific as you can.
+        For example, tell us where you were or who you were speaking to. Footage does not include audio, so describe what can be seen.
+      </p>
+
+      <p class="govuk-body">
+        Give as much detail as you can.
       </p>
 
       {{ govukTextarea({
         name: "moreDetail",
         id: "more-detail",
-        rows: "8",
         label: {
-          text: "Request details",
-          classes: "govuk-label--m"
+          text: "Footage details",
+          classes: "govuk-label--s"
         }
       }) }}
-
 
       {{ govukButton({
         text: "Continue"

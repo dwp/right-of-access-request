@@ -11,7 +11,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="date-and-time" method="post">
+    <form class="form" action="what-happened-in-the-footage" method="post">
 
       <h1 class="govuk-heading-l">
         {{ pageName }}
@@ -31,6 +31,31 @@
         }
       }) }}
 
+      {{ govukInput({
+        label: {
+          text: "What time did you enter the premises?",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "For example, 9am or 21:00."
+        },
+        classes: "govuk-input--width-4",
+        id: "width-4",
+        name: "width4"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "What time did you leave the premises?",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "For example, 9am or 21:00."
+        },
+        classes: "govuk-input--width-4",
+        id: "width-4",
+        name: "width4"
+      }) }}
 
       {{ govukButton({
         text: "Continue"

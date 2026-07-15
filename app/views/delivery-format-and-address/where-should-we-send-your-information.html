@@ -1,0 +1,50 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "Where should we send your information?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="phone-number-used-for-the-call" method="post">
+
+            {{ govukRadios({
+            name: "deliveryAddress",
+            fieldset: {
+                legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                value: "currentAddress",
+                text: "Your current address",
+                hint: {
+                    html: "123 Maple Street<br>
+                    Manchester<br>
+                    M23 9TX"
+                    },
+                checked: true
+                }
+,
+                {
+                    value: "differentAddress",
+                    text: "A different address"
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+            text: "Continue"
+            }) }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

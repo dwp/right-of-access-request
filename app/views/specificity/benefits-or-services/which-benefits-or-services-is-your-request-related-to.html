@@ -1,9 +1,21 @@
 {% extends "layouts/user-journey.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% set phaseBanner = 'true' %}
 {% set backLink = 'false' %}
 
 {% set pageName="Which benefit or service is your request about?" %}
+
+{% set benefitNameHtml %}
+{{ govukInput({
+  id: "benefit-or-service-name",
+  name: "benefitOrServiceName",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Benefit or service name"
+  }
+}) }}
+{% endset -%}
 
 {% block content %}
 
@@ -25,23 +37,98 @@
         },
         items: [
           {
-            value: "attendance-allowance",
-            text: "Attendance allowance"
+            value: "accessToWork",
+            text: "Access to Work"
           },
           {
-            value: "universal-credit",
+            value: "attendanceAllowance",
+            text: "Attendance Allowance (AA)"
+          },
+          {
+            value: "bereavementBenefit",
+            text: "Bereavement Benefit (BB)"
+          },
+          {
+            value: "carersAllowance",
+            text: "Carers Allowance"
+          },
+          {
+            value: "childMaintenanceService",
+            text: "Child Maintenance Service"
+          },
+          {
+            value: "disabilityLivingAllowance",
+            text: "Disability Living Allowance (DLA)"
+          },
+          {
+            value: "employmentAndSupportAllowance",
+            text: "Employment and Support Allowance (ESA)"
+          },
+          {
+            value: "incapacityBenefit",
+            text: "Incapacity Benefit"
+          },
+          {
+            value: "incomeSupport",
+            text: "Income Support"
+          },
+          {
+            value: "industrialInjuriesSchemeBenefit",
+            text: "Industrial Injuries Scheme Benefit (IISB)"
+          },
+          {
+            value: "jobseekersAllowance",
+            text: "Jobseeker’s Allowance (JSA)"
+          },
+          {
+            value: "maternityAllowance",
+            text: "Maternity Allowance"
+          },
+          {
+            value: "pensionCredit",
+            text: "Pension Credit (PC)"
+          },
+          {
+            value: "personalInjuryCompensation",
+            text: "Personal injury compensation (Compensation Recovery Unit)"
+          },
+          {
+            value: "personalIndependencePayment",
+            text: "Personal Independence Payment (PIP)"
+          },
+          {
+            value: "severeDisablementAllowance",
+            text: "Severe Disablement Allowance (SDA)"
+          },
+          {
+            value: "socialFund",
+            text: "Social Fund"
+          },
+          {
+            value: "statePension",
+            text: "State Pension"
+          },
+          {
+            value: "universalCredit",
             text: "Universal Credit"
           },
           {
-            value: "universal-credit",
-            text: "Personal Independent Payment (PIP)"
+            value: "widowsBenefit",
+            text: "Widow’s Benefit"
+          },
+          {
+            value: "notInList",
+            text: "A benefit or service that is not on the list",
+            conditional: {
+              html: benefitNameHtml
+            }
           },
           {
             divider: "or"
           },
           {
             value: "none",
-            text: "I do not know",
+            text: "I do not know or remember the name",
             behaviour: "exclusive"
           }
         ]

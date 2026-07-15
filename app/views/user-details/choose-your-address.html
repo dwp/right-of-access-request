@@ -1,0 +1,63 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName="Choose your address" %}
+
+{% set addressText %}
+<p class="govuk-body">
+    2 addresses found for <b>{{ data.houseNumber }}</b>,
+    <b>{{ data.addressPostcode | upper }}</b>.
+    <a href="uk-address" class="govuk-link">Change</a>
+</p>
+{% endset %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="lived-at-another-address" method="post">
+
+            {{ govukRadios({
+                name: "live-in-uk",
+                fieldset: {
+                    legend: {
+                    text: pageName,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                
+                formGroup: {
+                    beforeInputs: {
+                        html: addressText
+                    }
+                },
+
+                items: [
+                    {
+                    value: "dwpManchester",
+                    text: "DWP Digital, 87-89 Mosley St, Manchester M2 3LR"
+                    },
+                    {
+                    value: "no",
+                    text: "DWP central, 85-86 Mosley St, Manchester M2 3LR"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+            <p class="govuk-body">
+                <a href="enter-your-address-manually" class="govuk-link">My address is not listed</a>
+            </p>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

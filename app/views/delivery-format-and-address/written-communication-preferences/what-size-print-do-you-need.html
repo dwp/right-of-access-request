@@ -1,0 +1,47 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "What size print do you need?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/delivery-format-and-address/spoken-communication-preferences/how-should-we-contact-you-if-we-need-to-speak-to-you" method="post">
+
+            {{ govukRadios({
+                name: "printSize",
+                fieldset: {
+                    legend: {
+                    text: pageName,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "16Point",
+                    text: "16 point"
+                    },
+                    {
+                    value: "18Point",
+                    text: "18 point"
+                    },
+                    {
+                    value: "24Point",
+                    text: "24 point"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

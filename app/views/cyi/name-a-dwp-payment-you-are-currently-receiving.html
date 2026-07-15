@@ -1,0 +1,90 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "Name a DWP payment you are currently receiving" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="what-is-the-weekly-or-monthly-amount-of-the-benefit" method="post">
+
+            {{ govukRadios({
+            name: "deliveryAddress",
+            fieldset: {
+                legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "Choose benefit or service"
+            },
+            items: [
+                {
+                    value: "aa",
+                    text: "Attendance Allowance"
+                },
+                {
+                    value: "uc",
+                    text: "Universal Credit"
+                },
+                {
+                    value: "pip",
+                    text: "PIP"
+                },
+                {
+                    value: "pip",
+                    text: "Benefit Name"
+                },
+                {
+                    value: "pip",
+                    text: "Benefit Name"
+                },
+                {
+                    value: "pip",
+                    text: "Benefit Name"
+                },
+                {
+                    value: "pip",
+                    text: "Benefit Name"
+                },
+                {
+                    value: "pip",
+                    text: "Benefit Name"
+                },
+                {
+                    value: "pip",
+                    text: "Benefit Name"
+                },
+                {
+                    value: "pip",
+                    text: "Benefit Name"
+                },
+                {
+                    value: "pip",
+                    text: "Benefit Name"
+                },
+                {
+                    value: "pip",
+                    text: "Benefit Name"
+                },
+                {
+                    value: "pip",
+                    text: "I am not currently receiving a DWP payment"
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+            text: "Continue"
+            }) }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
