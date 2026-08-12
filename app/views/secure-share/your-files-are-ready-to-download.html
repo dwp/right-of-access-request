@@ -1,0 +1,35 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set pageName = "Your files are ready to download" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="personal-information-you-need" method="post">
+
+      <h1 class="govuk-heading-l">
+        {{ pageName }}
+      </h1>
+
+      <p class="govuk-body">
+        These files will only be available for a limited time. You should download a copy of anything you want to keep.
+      </p>
+
+      {% call govukInsetText() %}
+        We will send an email to a****@b***.co.uk with a code that you will need to access these files.
+      </p>
+      {% endcall %}
+
+      {{ govukButton({
+        text: "Send security code"
+      }) }}
+
+    </form>
+    
+  </div>
+</div>
+
+{% endblock %}

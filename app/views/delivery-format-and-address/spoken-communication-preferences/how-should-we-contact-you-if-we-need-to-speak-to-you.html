@@ -4,7 +4,7 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "How should we contact you if we need to speak to you?" %}
+{% set pageName = "How should we contact you if we need more information?" %}
 
 {% set phoneHtml %}
 {{ govukInput({
@@ -14,30 +14,7 @@
   autocomplete: "tel",
   classes: "govuk-!-width-one-third",
   label: {
-    text: "Phone number"
-  }
-}) }}
-{% endset -%}
-
-{% set relayHtml %}
-{{ govukInput({
-  id: "contact-by-relay",
-  name: "contactByRelay",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Relay UK number"
-  }
-}) }}
-{% endset -%}
-
-{% set otherContactOptionHtml %}
-{{ govukInput({
-  id: "other-contact-preference",
-  name: "otherContactPreference",
-  label: {
-    text: "Tell us what you need"
+    text: "UK phone number"
   }
 }) }}
 {% endset -%}
@@ -57,6 +34,9 @@
             classes: "govuk-fieldset__legend--l"
           }
         },
+        hint: {
+          text: "We usually contact people by phone, but you can let us know if you need something  different. Select the option that best suits your needs."
+        },
         items: [
           {
             value: "phoneCall",
@@ -66,25 +46,15 @@
             }
           },
           {
-            value: "relay",
-            text: "Relay UK",
-            conditional: {
-              html: relayHtml
-            }
-          },
-          {
-            value: "signingOrlipspeaking",
-            text: "Signing or lipspeaking"
+            value: "byPost",
+            text: "By post"
           },
           {
             divider: "or"
           },
           {
             value: "iNeedSomethingDifferent",
-            text: "I need something different",
-            conditional: {
-              html: otherContactOptionHtml
-            }
+            text: "I need something different"
           }
         ]
       }) }}

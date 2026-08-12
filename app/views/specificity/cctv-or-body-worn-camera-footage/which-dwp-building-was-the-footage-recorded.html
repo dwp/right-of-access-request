@@ -3,7 +3,7 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'false' %}
 
-{% set pageName = "Which job centre was the footage recorded in?" %}
+{% set pageName = "Which DWP building was the footage recorded in?" %}
 
 {% block content %}
 
@@ -16,12 +16,12 @@
       </h1>
 
       <p class="govuk-body govuk-!-margin-bottom-7">
-        We can only provide CCTV or body worn camera footage from DWP job centres. Footage will not have audio.
+        We can only provide CCTV or body worn camera footage from DWP buildings. Any footage we give you will not have sound.
       </p>
 
       {{ govukInput({
         label: {
-          text: "Job centre name",
+          text: "Building name",
           classes: "govuk-label--m"
         },
         id: "job-centre-name",
@@ -30,7 +30,7 @@
 
       {{ govukInput({
         label: {
-          text: "Job centre postcode",
+          text: "Building postcode",
           classes: "govuk-label--m"
         },
         classes: "govuk-input--width-10",

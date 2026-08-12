@@ -3,32 +3,32 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "Have you lived at another address in the last 5 years?" %}
+{% set pageName = "Is the address in the UK?" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/lived-another-address" method="post">
+        <form class="form" action="find-uk-address" method="post">
 
             {{ govukRadios({
                 classes: "govuk-radios--inline",
-                name: "lived-another-address",
+                name: "live-in-uk",
                 fieldset: {
                     legend: {
-                    text: pageName,
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
+                        text: pageName,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
                     }
                 },
                 items: [
                     {
-                    value: "yes",
-                    text: "Yes"
+                        value: "yes",
+                        text: "Yes"
                     },
                     {
-                    value: "no",
-                    text: "No"
+                        value: "no",
+                        text: "No"
                     }
                 ]
             }) }}

@@ -3,17 +3,17 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "Have you lived at another address in the last 5 years?" %}
+{% set pageName="Do you have a National Insurance number?" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/lived-another-address" method="post">
+        <form class="form" action="/known-another-name" method="post">
 
             {{ govukRadios({
                 classes: "govuk-radios--inline",
-                name: "lived-another-address",
+                name: "changed-name",
                 fieldset: {
                     legend: {
                     text: pageName,

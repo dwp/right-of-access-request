@@ -1,0 +1,49 @@
+{% extends "layouts/user-journey.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "What do you need?" %}
+
+{% set phoneHtml %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contactByPhone",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "UK phone number"
+  }
+}) }}
+{% endset -%}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="/contact-preferences" method="post">
+
+      {{ govukTextarea({
+        name: "moreDetail",
+        id: "more-detail",
+        label: {
+          text: pageName,
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "Tell us how you need us to contact you, or help you understand information we send you."
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

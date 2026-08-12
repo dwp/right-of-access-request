@@ -41,49 +41,6 @@ router.post('/lived-another-address', function(request, response) {
     }
 })
 
-//Route for adding multiple phone numbers
-
-router.post('/which-phone-number', function (req, res) {
-
-    let numbers = req.session.data.phoneNumbers || []
-    let newNumber = req.body.phoneNumber
-
-    if (newNumber) {
-        numbers.push(newNumber)
-    }
-
-    req.session.data.phoneNumbers = numbers
-
-    if (req.body.action === "add") {
-        return res.redirect('/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/add-another-phone-number')
-    }
-
-    // Continue button
-    res.redirect('/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/give-a-detailed-description')
-
-})
-
-//Remove functionality for removing the numbers
-router.get('/remove-phone/:index', function (req, res) {
-
-    let numbers = req.session.data.phoneNumbers || []
-
-    // Convert index to number
-    let index = parseInt(req.params.index)
-
-    // Remove the item
-    if (!isNaN(index)) {
-        numbers.splice(index, 1)
-    }
-
-    // Save updated list
-    req.session.data.phoneNumbers = numbers
-
-    // Redirect back to the page
-    res.redirect('/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/add-another-phone-number')
-
-})
-
 //Route for contact preferences?
 router.post('/contact-preferences', function(request, response) {
 
@@ -105,4 +62,75 @@ router.post('/other-help-when-we-contact-you', function(request, response) {
         response.redirect("/user-details/wip")
     }
 })
+
+//Route for How many calls is this request about?
+router.post('/how-many-calls', function(request, response) {
+
+    var numberOfCalls = request.session.data['numberOfCalls']
+    if (numberOfCalls == "one"){
+        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/call-recordings/one/what-phone-number-did-you-use-for-the-call")
+    } else {
+        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/did-you-use-different-phone-numbers-for-the-calls")
+    }
+})
+
+//Route for What phone number did you use for the calls?
+router.post('/continue-or-add-phone-number', function (req, res) {
+
+    const phoneNumber = req.session.data.phoneNumber
+
+    if (!req.session.data.phoneNumbers) {
+        req.session.data.phoneNumbers = []
+    }
+
+    // Prevent duplicates
+    if (
+        phoneNumber &&
+        req.session.data.phoneNumbers[
+            req.session.data.phoneNumbers.length - 1
+        ] !== phoneNumber
+    ) {
+        req.session.data.phoneNumbers.push(phoneNumber)
+    }
+
+    if (req.session.data.oneOrMorePhoneNumber === 'one') {
+        res.redirect('/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/give-a-detailed-description-of-the-call')
+    } else {
+        res.redirect('/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/add-another-phone-number')
+    }
+})
+
+//Route for Do you want to add another phone number
+router.post('/more-phone-numbers', function(request, response) {
+
+    var morePhoneNumber = request.session.data['morePhoneNumbers']
+    if (morePhoneNumber == "yes"){
+        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/what-phone-number-did-you-use-for-the-call")
+    } else {
+        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/call-recordings/how-do-you-want-to-receive-your-call-recording")
+    }
+})
+
+router.post('/remove-phone-number', function (req, res) {
+
+    const index = Number(req.session.data.index)
+
+    if (req.session.data.removePhoneNumber === 'yes') {
+        req.session.data.phoneNumbers.splice(index, 1)
+    }
+
+    // If no phone numbers remain
+    if (
+        !req.session.data.phoneNumbers ||
+        req.session.data.phoneNumbers.length === 0
+    ) {
+        return res.redirect('/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/what-phone-number-did-you-use-for-the-call')
+    }
+
+    // Otherwise go back to the list
+    res.redirect('/specificity/benefits-or-services/one-or-two-benefits/call-recordings/two-or-more/add-another-phone-number')
+
+})
+
+
 

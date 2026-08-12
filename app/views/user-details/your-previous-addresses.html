@@ -1,0 +1,142 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "Your previous addresses" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">
+            {{ pageName }}
+        </h1>
+
+        {{ govukSummaryList({
+            rows: [
+                {
+                    key: {
+                        text: "Address 1"
+                    },
+                    value: {
+                        html: "DWP Digital<br>87-89 Mosley St<br>Manchester<br>M2 3LR"
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change",
+                                visuallyHiddenText: "address"
+                            },
+                            {
+                                href: "#",
+                                text: "Remove",
+                                visuallyHiddenText: "address"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukSummaryList({
+            rows: [
+                {
+                    key: {
+                        text: "Address 2"
+                    },
+                    value: {
+                        html: "18 Scholars place<br>Walton-on-Thames<br>Surrey<br>KT12 3FE"
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change",
+                                visuallyHiddenText: "address"
+                            },
+                            {
+                                href: "#",
+                                text: "Remove",
+                                visuallyHiddenText: "address"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }) }}
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/lived-another-address" method="post">
+
+            {# {{ govukSummaryList({
+            card: {
+                title: {
+                    text: "Previous addess 1"
+                },
+                actions: {
+                items: [
+                    {
+                        href: "#",
+                        text: "Change"
+                    },
+                    {
+                        href: "#",
+                        text: "Remove"
+                    }
+                ]
+                }
+            },
+            rows: [
+                {
+                    key: {
+                        text: "Address 1"
+                    },
+                    value: {
+                        html: "18 Scholars place<br>Walton-on-Thames<br>Surrey<br>KT12 3FE"
+                    }
+                },
+                {
+                    key: {
+                        text: "Location"
+                    },
+                    value: {
+                        html: "School name<br>Road, City, SW2 1AA"
+                    }
+                }
+            ]
+            }) }} #}
+
+            {{ govukRadios({
+                name: "lived-another-address",
+                fieldset: {
+                    legend: {
+                    text: "Do you need to add another previous address?",
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

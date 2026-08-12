@@ -3,7 +3,7 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName="Do you need any other help when we contact you?" %}
+{% set pageName="What format do you need?" %}
 
 {% block content %}
 
@@ -12,7 +12,6 @@
         <form class="form" action="/other-help-when-we-contact-you" method="post">
 
             {{ govukRadios({
-                classes: "govuk-radios--inline",
                 name: "otherHelp",
                 fieldset: {
                     legend: {
@@ -22,16 +21,28 @@
                     }
                 },
                 hint: {
-                    text: "This might include another way to write or speak to you, or help with understanding information we send you."
+                    text: "Select the best option for you."
                 },
                 items: [
                     {
-                    value: "yes",
-                    text: "Yes"
+                    value: "standardDocument",
+                    text: "Standard document (12-point Arial text on paper)"
                     },
                     {
-                    value: "no",
-                    text: "No"
+                    value: "letterWithChanges",
+                    text: "Letter with changes to font, paper colour, spacing or print size"
+                    },
+                    {
+                    value: "audio",
+                    text: "Audio"
+                    },
+                    {
+                    value: "braille",
+                    text: "Braille"
+                    },
+                    {
+                    value: "bsl",
+                    text: "British Sign Language video"
                     }
                 ]
             }) }}

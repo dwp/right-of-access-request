@@ -3,33 +3,37 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "Have you lived at another address in the last 5 years?" %}
+{% set pageName = "Are you sure you want to remove this phone number?" %}
+
+{% set phoneNumber = data.phoneNumbers[data.index] %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/lived-another-address" method="post">
+        <form class="form" action="/remove-phone-number" method="post">
 
             {{ govukRadios({
-                classes: "govuk-radios--inline",
-                name: "lived-another-address",
+                name: "removePhoneNumber",
                 fieldset: {
                     legend: {
-                    text: pageName,
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
+                        text: pageName,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
                     }
                 },
+                hint: {
+                    html: "<div class='govuk-inset-text'>" + phoneNumber + "</div>"
+                },
                 items: [
-                    {
+                {
                     value: "yes",
                     text: "Yes"
-                    },
-                    {
+                },
+                {
                     value: "no",
                     text: "No"
-                    }
+                }
                 ]
             }) }}
 

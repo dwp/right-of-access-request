@@ -1,0 +1,68 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set pageName = "Download your documents" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="personal-information-you-need" method="post">
+
+      <h1 class="govuk-heading-l">
+        {{ pageName }}
+      </h1>
+
+      <p class="govuk-body">
+        You have [X] days to download your documents. The documents will be deleted from this page on [example: 25 February 2026 at 6:00pm]. Any documents you’ve downloaded will stay on your device.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Download individual documents
+      </h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="#">documentName.fileExtension(fileSize)</a>
+        </li>
+      </ul>
+
+      {{ govukButton({
+        text: "Download all"
+      }) }}
+
+      {% call govukInsetText() %}
+        You can delete these documents if you don’t need to access them again.
+      {% endcall %}
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Access and download history
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body govuk-!-font-size-19 govuk-!-font-weight-bold">
+            [Example date:] 17 January 2023, 2:06pm
+          </p>
+          <p class="govuk-body">
+            Access with the [browser name] browser on a [OS name] device.
+          </p>
+          <p class="govuk-body">
+            These documents were downloaded:
+          </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a class="govuk-link" href="#">documentName.fileExtension(fileSize)</a>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+    </form>
+    
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% macro phoneSummaryList(numbers) %}
+
+{% set rows = [] %}
+
+{% for number in numbers %}
+    {% set rows = (rows.push({
+        key: {
+            text: "Phone number " + loop.index
+        },
+        value: {
+            text: number
+        }
+    }), rows) %}
+{% endfor %}
+
+{{ govukSummaryList({
+    rows: rows
+}) }}
+
+{% endmacro %}

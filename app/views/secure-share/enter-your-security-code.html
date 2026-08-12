@@ -1,0 +1,46 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set pageName = "Enter your security code" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="personal-information-you-need" method="post">
+
+      <h1 class="govuk-heading-l">
+        {{ pageName }}
+      </h1>
+
+      {% call govukInsetText() %}
+        We’ve sent an email to a****@b***.co.uk with a security code.
+      {% endcall %}
+
+      {{ govukInput({
+        label: {
+          text: "Security code"
+        },
+        id: "security-code",
+        name: "securityCode",
+        type: "text",
+        autocomplete: "one-time-code",
+        classes: "govuk-input--width-5 govuk-input--extra-letter-spacing",
+        inputmode: "numeric"
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Not received an email?</a>
+      </p>
+
+    </form>
+    
+  </div>
+</div>
+
+{% endblock %}

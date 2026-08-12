@@ -1,0 +1,58 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "What information do you need?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="benefits-or-services-list" method="post">
+
+      <h1 class="govuk-heading-l">
+        {{ pageName }}
+      </h1>
+
+      <p class="govuk-body">
+        Tell us:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>what type of written documents you need (for example, letters DWP have sent to you, medical reports or evidence you have provided)</li>
+        <li>the period that the information should cover (tell us approximate dates if you do not remember exact dates)</li>
+      </ul>
+
+      <p class="govuk-body">
+          For example:
+      </p>
+
+      {% call govukInsetText() %}
+          "I need my PIP award notices and payment history from 1 April 2023 to 31 March 2025."
+      {% endcall %}
+
+      <p class="govuk-body">
+        Tell us approximate dates for the information you want. It helps us to find your information, especially if you’re requesting information for multiple benefits.
+      </p>
+
+      {{ govukTextarea({
+        name: "moreDetail",
+        id: "more-detail",
+        rows: "8",
+        label: {
+          text: "Request details",
+          classes: "govuk-label--m"
+        }
+      }) }}
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

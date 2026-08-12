@@ -1,18 +1,18 @@
 {% extends "layouts/user-journey.html" %}
 
 {% set phaseBanner = 'true' %}
-{% set backLink = 'false' %}
+{% set backLink = 'true' %}
 
-{% set pageName="What personal information do you need?" %}
+{% set pageName = "Select the type of information you want to request" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="personal-information-you-need" method="post">
+    <form class="form" action="benefits-or-services-list" method="post">
 
       {{ govukCheckboxes({
-        name: "personalInformationYouNeed",
+        name: "typesOfInformation",
         fieldset: {
           legend: {
             text: pageName,
@@ -25,15 +25,12 @@
         },
         items: [
           {
-            value: "benefits-or-services",
-            text: "Benefits or services"
+            value: "call-recordings",
+            text: "Recordings of calls with DWP"
           },
           {
-            value: "cctv-or-body-worn-camera-footage",
-            text: "CCTV or body worn camera footage",
-            hint: {
-              text: "Footage is sent by post on DVD, without audio "
-            }
+            value: "writtenDocuments",
+            text: "Written documents"
           }
         ]
       }) }}

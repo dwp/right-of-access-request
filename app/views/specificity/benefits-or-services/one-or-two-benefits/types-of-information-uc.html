@@ -1,0 +1,90 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'false' %}
+
+{% set pageName = "Select the types of information you want to request about Universal Credit" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="benefits-or-services-list" method="post">
+
+      {{ govukCheckboxes({
+        name: "typesOfInformation",
+        fieldset: {
+          legend: {
+            text: pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "call-recordings",
+            text: "Recordings of calls with DWP"
+          },
+          {
+            value: "call-recordings",
+            text: "Your application or claim information"
+          },
+          {
+            value: "case-notes",
+            text: "Payment history and statements"
+          },
+          {
+            value: "case-notes",
+            text: "Overpayments and repayments"
+          },
+          {
+            value: "case-notes",
+            text: "Evidence you’ve sent us"
+          },
+          {
+            value: "case-notes",
+            text: "Assessment reports"
+          },
+          {
+            value: "case-notes",
+            text: "Your self-employed earnings information"
+          },
+          {
+            value: "case-notes",
+            text: "Journal entries"
+          },
+          {
+            value: "case-notes",
+            text: "Notes about your claim"
+          },
+          {
+            value: "case-notes",
+            text: "Decisions, mandatory reconsiderations and appeals"
+          },
+          {
+            value: "case-notes",
+            text: "Universal Credit claim reviews"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "something-else",
+            text: "Something else",
+            behaviour: "exclusive"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
