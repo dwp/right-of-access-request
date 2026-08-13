@@ -1,18 +1,30 @@
 {% extends "layouts/user-journey.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
 {% set pageName = "Name a DWP payment you are currently receiving" %}
 
+{% set benefitNameHtml %}
+{{ govukInput({
+    id: "contact-by-email",
+    name: "contactByEmail",
+    classes: "govuk-!-width-full",
+    label: {
+        text: "Benefit or service name"
+    }
+}) }}
+{% endset -%}
+
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="what-is-the-weekly-or-monthly-amount-of-the-benefit" method="post">
+        <form class="form" action="/name-a-dwp-payment" method="post">
 
             {{ govukRadios({
-            name: "deliveryAddress",
+            name: "benefit-name",
             fieldset: {
                 legend: {
                 text: pageName,
@@ -21,59 +33,109 @@
                 }
             },
             hint: {
-                text: "Choose benefit or service"
+                text: "Select one option"
             },
             items: [
                 {
                     value: "aa",
-                    text: "Attendance Allowance"
+                    text: "Access To Work"
                 },
                 {
                     value: "uc",
+                    text: "Attendance Allowance"
+                },
+                {
+                    value: "pip",
+                    text: "Bereavement Benefit"
+                },
+                {
+                    value: "pip",
+                    text: "Carers Allowance"
+                },
+                {
+                    value: "pip",
+                    text: "Child Maintenance Service"
+                },
+                {
+                    value: "pip",
+                    text: "Disability Living Allowance (DLA)"
+                },
+                {
+                    value: "pip",
+                    text: "Employment and Support Allowance (ESA)"
+                },
+                {
+                    value: "pip",
+                    text: "Incapacity Benefit"
+                },
+                {
+                    value: "pip",
+                    text: "Income Support"
+                },
+                {
+                    value: "pip",
+                    text: "Industrial Injuries Scheme Benefit (IISB)"
+                },
+                {
+                    value: "pip",
+                    text: "Jobseeker’s Allowance (JSA)"
+                },
+                {
+                    value: "pip",
+                    text: "Maternity Allowance"
+                },
+                {
+                    value: "pip",
+                    text: "Pension Credit (PC)"
+                },
+                {
+                    value: "pip",
+                    text: "Personal injury compensation (Compensation Recovery Unit)"
+                },
+                {
+                    value: "pip",
+                    text: "Personal Independence Payment (PIP)"
+                },
+                {
+                    value: "pip",
+                    text: "Severe Disablement Allowance (SDA)"
+                },
+                {
+                    value: "pip",
+                    text: "Social Fund"
+                },
+                {
+                    value: "pip",
+                    text: "State Pension"
+                },
+                {
+                    value: "pip",
                     text: "Universal Credit"
                 },
                 {
                     value: "pip",
-                    text: "PIP"
+                    text: "Widow’s Benefit"
                 },
                 {
                     value: "pip",
-                    text: "Benefit Name"
+                    text: "State Pension"
                 },
                 {
                     value: "pip",
-                    text: "Benefit Name"
+                    text: "State Pension"
                 },
                 {
                     value: "pip",
-                    text: "Benefit Name"
+                    text: "A benefit or service that is not on the list",
+                    conditional: {
+                        html: benefitNameHtml
+                    }
                 },
                 {
-                    value: "pip",
-                    text: "Benefit Name"
+                    divider: "or"
                 },
                 {
-                    value: "pip",
-                    text: "Benefit Name"
-                },
-                {
-                    value: "pip",
-                    text: "Benefit Name"
-                },
-                {
-                    value: "pip",
-                    text: "Benefit Name"
-                },
-                {
-                    value: "pip",
-                    text: "Benefit Name"
-                },
-                {
-                    value: "pip",
-                    text: "Benefit Name"
-                },
-                {
-                    value: "pip",
+                    value: "not-receiving-payment",
                     text: "I am not currently receiving a DWP payment"
                 }
             ]

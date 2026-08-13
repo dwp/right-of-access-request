@@ -1,0 +1,69 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "Application complete" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Application complete"
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p class="govuk-body">
+        We’ll check the identity information you’ve given us and find the information you’ve asked us for.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        When you’ll receive your response
+      </h2>
+
+      <p class="govuk-body">
+        We’ll aim to send your information within 1 month. Complex requests can take longer  to complete. If we need more time, we’ll let you know within the first month.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        How we’ll send your information
+      </h2>
+
+      <p class="govuk-body">
+        If you asked for your information online, we’ll send you a link by email to download files from a secure web page.
+      </p>
+
+      <p class="govuk-body">
+        If you asked for information in an alternative format, we may contact you to find out more about what you need.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        What you’ll get
+      </h2>
+
+      <p class="govuk-body">
+        We’ll send you a letter as part of your information pack that tells you:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>what’s included (if we can’t give you something you’ve asked for, we’ll explain why)</li>
+        <li>how to contact us if you think something’s missing</li>
+        <li>how to complain</li>
+      </ul>
+
+      <p class="govuk-body">
+        <a class="govuk-link "href="#">
+          What did you think of this service?
+        </a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -9,10 +9,10 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="benefits-or-services-list" method="post">
+    <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/call-recordings/how-many-calls-is-this-request-about" method="post">
 
       {{ govukCheckboxes({
-        name: "typesOfInformation",
+        name: "typesOfInformationPip",
         fieldset: {
           legend: {
             text: pageName,
@@ -25,31 +25,31 @@
         },
         items: [
           {
-            value: "call-recordings",
+            value: "callRecordings",
             text: "Recordings of calls with DWP"
           },
           {
-            value: "call-recordings",
+            value: "applicationOrClaimInformation",
             text: "Your application or claim information"
           },
           {
-            value: "case-notes",
+            value: "assessmentReports",
             text: "Assessment reports"
           },
           {
-            value: "case-notes",
+            value: "evidences",
             text: "Evidence you've sent us"
           },
           {
-            value: "case-notes",
+            value: "caseNotes",
             text: "Notes about your claim"
           },
           {
-            value: "case-notes",
+            value: "lettersFormsMessages",
             text: "Letters, forms and messages from DWP"
           },
           {
-            value: "case-notes",
+            value: "decisions",
             text: "Decisions about your claim"
           },
           {

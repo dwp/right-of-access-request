@@ -1,0 +1,307 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Request information DWP holds about you
+      </h1>
+
+      <p class="govuk-body">
+        Use this service to ask for a copy of personal information held about you by the Department for Work and Pensions (DWP).
+      </p>
+
+      <p class="govuk-body">
+        This is known as a Right of Access Request (RAR), sometimes called a Subject Access Request (SAR).
+      </p>
+
+      <p class="govuk-body">
+        A Right of Access Request allows you to get copies of personal information DWP holds about you. This can help you understand your records, review information held about your claims, check personal information is accurate, or access information relevant to a decision, complaint, dispute or investigation.
+      </p>
+
+      <h2 class="govuk-heading-l">
+        You may not need a Right of Access Request
+      </h2>
+
+      <p class="govuk-body">
+        Some information can be obtained more quickly through other DWP services.
+      </p>
+
+      <p class="govuk-body">
+        You may not need a Right of Access Request if you only need:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>proof of benefit entitlement</li>
+        <li>a benefit award letter</li>
+        <li>proof of payments</li>
+        <li>payment dates</li>
+        <li>State Pension information</li>
+        <li>information already available through your online account</li>
+      </ul>
+
+      <p class="govuk-body">
+        Using the most appropriate service may help you get the information you need more quickly.
+      </p>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Check which service you need</a>
+      </p>
+
+      <h2 class="govuk-heading-l">
+        Who can use this service
+      </h2>
+
+      <p class="govuk-body">
+        You can use this service if you are requesting information about yourself.
+      </p>
+
+      <p class="govuk-body">
+        You cannot use this service to request information about another person.
+      </p>
+
+      <p class="govuk-body">
+        If you are acting on behalf of someone else, including as:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a solicitor</li>
+        <li>a representative</li>
+        <li>an appointee</li>
+        <li>a family member</li>
+      </ul>
+
+      <p class="govuk-body">
+        you must use the appropriate third-party process and provide the required authority.
+      </p>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Request information on behalf of someone else</a>
+      </p>
+
+      <h2 class="govuk-heading-l">
+        What information you can request
+      </h2>
+
+      <p class="govuk-body">
+        You can request copies of personal information held by DWP relating to:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>benefit claims</li>
+        <li>assessment reports</li>
+        <li>evidence provided to DWP</li>
+        <li>claim history</li>
+        <li>correspondence</li>
+        <li>complaint records</li>
+        <li>call recordings (where available)</li>
+        <li>records relating to DWP services you have used</li>
+      </ul>
+
+      <p class="govuk-body">
+        You can also request CCTV or body-worn camera footage of yourself if you provide sufficient details to identify the recording. Video footage will not have sound.
+      </p>
+
+      <h3 class="govuk-heading-m">
+        Be as specific as possible
+      </h3>
+
+      <p class="govuk-body">
+        The more information you provide, the easier it is for us to locate the records you need.
+      </p>
+
+      <p class="govuk-body">
+        Tell us:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>what information you are looking for</li>
+        <li>which benefit or service it relates to</li>
+        <li>relevant dates or periods</li>
+        <li>any specific decisions, events or interactions connected to your request</li>
+      </ul>
+
+      <p class="govuk-body">
+        A specific request is often processed more quickly and produces a more useful response.
+      </p>
+
+      <h2 class="govuk-heading-l">
+        What information cannot be requested through this service
+      </h2>
+
+      <p class="govuk-body">
+        This service only covers information held by DWP.
+      </p>
+
+      <p class="govuk-body">
+        Do not use this service to request:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>HM Revenue and Customs (HMRC) records</li>
+        <li>information held by another government department</li>
+        <li>information held by another organisation</li>
+        <li>information about another person</li>
+        <li>general enquiries about benefits</li>
+        <li>routine payment information available through other services</li>
+      </ul>
+
+      <p class="govuk-body">
+        Some information may not be disclosed where legal exemptions apply or where disclosure would reveal personal information about someone else.
+      </p>
+
+      <p class="govuk-body">
+        Where necessary, information may be removed or redacted before it is provided.
+      </p>
+
+      <h2 class="govuk-heading-l">
+        Scottish benefits
+      </h2>
+
+      <p class="govuk-body">
+        Some benefits are delivered by Social Security Scotland rather than DWP.
+      </p>
+
+      <p class="govuk-body">
+        If your request relates to a benefit administered by Social Security Scotland, you may need to contact them directly.
+      </p>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Find out about Social Security Scotland</a>
+      </p>
+
+      <h2 class="govuk-heading-l">
+        Your personal information
+      </h2>
+
+      <p class="govuk-body">
+        DWP processes personal information in accordance with data protection legislation and the DWP Personal Information Charter.
+      </p>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Read the DWP Personal Information Charter</a>
+      </p>
+
+      <h2 class="govuk-heading-l">
+        If you need help
+      </h2>
+
+      <h3 class="govuk-heading-m">
+        Telephone support
+      </h3>
+
+      <p class="govuk-body">
+        If you need help using this service, you can make a Right of Access Request by calling the number on one of your benefit or pension letters. You can request information for multiple benefits and services in one call.
+      </p>
+
+      <p class="govuk-body">
+        You can also write to us at:
+      </p>
+
+      <p class="govuk-body">
+        If you need an alternative format, you can request that as part of completing the form.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Before you start
+      </h2>
+
+      <p class="govuk-body">
+        You will need:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your National Insurance number</li>
+        <li>details of the information you want</li>
+        <li>the relevant benefit or service</li>
+        <li>dates or periods relevant to your request</li>
+        <li>your current and previous address details</li>
+        <li>details of current benefit or pension payments</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        How long it takes
+      </h2>
+
+      <p class="govuk-body">
+        Completing this form usually takes around 10 minutes.
+      </p>
+
+      <p class="govuk-body">
+        The time needed to process your request depends on the amount of information requested and how specific the request is.
+      </p>
+
+      <p class="govuk-body">
+        Requests covering large periods of time or multiple benefits may take longer to process than more specific requests.
+      </p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/user-details/name",
+        isStartButton: true
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}
