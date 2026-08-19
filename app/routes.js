@@ -98,17 +98,6 @@ router.post('/how-many-calls', function(request, response) {
     }
 })
 
-//Route for contact preferences?
-router.post('/contact-preferences', function(request, response) {
-
-    var contactPreferences = request.session.data['contact-preferences']
-    if (contactPreferences == "signingOrlipspeaking"){
-        response.redirect("/specificity/benefits-or-services/spoken-communication-preferences/what-signing-or-lipspeaking-service-do-you-need")
-    } else {
-        response.redirect("/specificity/benefits-or-services/spoken-communication-preferences/do-you-need-any-other-help-when-we-contact-you")
-    }
-})
-
 //Route for do you need any other help when we contact you?
 router.post('/other-help-when-we-contact-you', function(request, response) {
 
@@ -197,6 +186,30 @@ router.post('/name-a-dwp-payment', function(request, response) {
         response.redirect("/application-complete")
     } else {
         response.redirect("/cyi/what-is-the-weekly-or-monthly-amount-of-the-benefit")
+    }
+})
+
+//Route for How should we provide your information?
+router.post('/select-written-format', function(request, response) {
+
+    var selectFormat = request.session.data['select-format']
+    if (selectFormat == "PDF"){
+        response.redirect("/delivery-format-and-address/written-communication-preferences/do-you-need-an-accessible-pdf")
+    } else if (selectFormat == "microsoftWordDoc")  {
+        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/types-of-information-uc")
+    } else {
+        response.redirect("/delivery-format-and-address/written-communication-preferences/what-format-do-you-need")
+    }
+})
+
+//Route for How should we contact you if we need more information
+router.post('/contact-preferences', function(request, response) {
+
+    var contactPreferences = request.session.data['contact-preferences']
+    if (contactPreferences == "iNeedSomethingDifferent"){
+        response.redirect("/delivery-format-and-address/spoken-communication-preferences/what-do-you-need")
+    } else {
+        response.redirect("/cyi/confirm-your-identity")
     }
 })
 
