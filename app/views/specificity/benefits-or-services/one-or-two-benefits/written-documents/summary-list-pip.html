@@ -1,0 +1,124 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+
+{% set pageName = "Check your answers" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+            <h1 class="govuk-heading-l">
+                {{pageName}}
+            </h1>
+
+            <h2 class="govuk-heading-m">
+                Personal Independence Payment (PIP)
+            </h2>
+
+            {{ govukSummaryList({
+            card: {
+                title: {
+                    text: "Details of requested documents"
+                }
+            },
+            rows: [
+                {
+                    key: {
+                        text: "Type of information"
+                    },
+                    value: {
+                        html: "Assessment reports"
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Details about the information"
+                    },
+                    value: {
+                        html: "I need my PIP award notices and payment history from 1 April 2023 to 31 March 2025."
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                }
+            ]
+            }) }}
+
+            {{ govukSummaryList({
+            card: {
+                title: {
+                    text: "Format and delivery details"
+                }
+            },
+            rows: [
+                {
+                    key: {
+                        text: "How should we provide your information?"
+                    },
+                    value: {
+                        html: "PDF"
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Do you need an accessible pdf?"
+                    },
+                    value: {
+                        html: "No"
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                }
+            ]
+            }) }}
+
+            <h2 class="govuk-heading-m">
+                Now continue to enter the details for:
+            </h2>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Universal Credit</li>
+            </ul>
+
+            <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/types-of-information-uc" method="post">
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

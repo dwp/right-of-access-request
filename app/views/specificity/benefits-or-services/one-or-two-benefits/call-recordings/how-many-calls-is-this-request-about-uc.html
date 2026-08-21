@@ -3,16 +3,16 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "Did you use multiple phone numbers to make or receive calls with DWP?" %}
+{% set pageName = "How many calls is this request about?" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="what-phone-number-did-you-use-for-the-call" method="post">
+    <form class="form" action="/how-many-calls" method="post">
 
       {{ govukRadios({
-        name: "oneOrMorePhoneNumber",
+        name: "numberOfCalls",
         fieldset: {
           legend: {
             html: '
@@ -26,11 +26,11 @@
         items: [
           {
             value: "one",
-            text: "I used one phone number"
+            text: "One"
           },
           {
-            value: "moreThanOne",
-            text: "I used more than one phone number"
+            value: "two-or-more",
+            text: "Two or more"
           }
         ]
       }) }}

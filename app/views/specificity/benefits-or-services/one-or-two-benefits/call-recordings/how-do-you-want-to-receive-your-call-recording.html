@@ -12,7 +12,7 @@
     <form class="form" action="/delivery-format-and-address/digital-delivery/what-is-your-email-address" method="post">
 
       {{ govukRadios({
-        name: "signIn",
+        name: "callRecordingFormat",
         fieldset: {
           legend: {
             text: pageName,
@@ -22,14 +22,14 @@
         },
         items: [
           {
-            value: "mp3",
+            value: "Digital audio file (MP3)",
             text: "Digital audio file (MP3)",
             hint: {
               text: "We’ll send a link to your email to download a file"
             }
           },
           {
-            value: "compactDisc",
+            value: "CD (compact disc)",
             text: "CD (compact disc)",
             hint: {
               text: "We’ll post a CD to the address you give us"

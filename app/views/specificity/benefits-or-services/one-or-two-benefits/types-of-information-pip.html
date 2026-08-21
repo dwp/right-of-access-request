@@ -3,19 +3,22 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'false' %}
 
-{% set pageName = "Select the types of information you want to request about Personal Independence Payment" %}
+{% set pageName = "Select the types of information you want to request" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/call-recordings/how-many-calls-is-this-request-about" method="post">
+    <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/call-recordings/how-many-calls-is-this-request-about-pip" method="post">
 
       {{ govukCheckboxes({
         name: "typesOfInformationPip",
         fieldset: {
           legend: {
-            text: pageName,
+            html: '
+              <span class="govuk-caption-l">Personal Independence Payment (PIP)</span>
+              ' + pageName + '
+            ',
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }

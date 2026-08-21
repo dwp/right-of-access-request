@@ -1,0 +1,184 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+
+{% set pageName = "Check your answers" %}
+
+{% set monthNames = {
+    "1": "January",
+    "01": "January",
+    "2": "February",
+    "02": "February",
+    "3": "March",
+    "03": "March",
+    "4": "April",
+    "04": "April",
+    "5": "May",
+    "05": "May",
+    "6": "June",
+    "06": "June",
+    "7": "July",
+    "07": "July",
+    "8": "August",
+    "08": "August",
+    "9": "September",
+    "09": "September",
+    "10": "October",
+    "11": "November",
+    "12": "December"
+} %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+            <h1 class="govuk-heading-l">
+                {{pageName}}
+            </h1>
+
+            <h2 class="govuk-heading-m">
+                Personal Independence Payment (PIP)
+            </h2>
+
+            {{ govukSummaryList({
+            card: {
+                title: {
+                    text: "Recordings of calls with DWP"
+                }
+            },
+            rows: [
+                {
+                    key: {
+                        text: "How many calls is this request about?"
+                    },
+                    value: {
+                        html: "One"
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "What phone number did you use for the call?"
+                    },
+                    value: {
+                        text: data['phoneNumber']
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "When did the call happen?"
+                    },
+                    value: {
+                        text: data['date-call-taken-place-day'] + ' ' +
+                        monthNames[data['date-call-taken-place-month']] + ' ' +
+                        data['date-call-taken-place-year']
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "More details about the call"
+                    },
+                    value: {
+                        text: data['callDetail']
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                }
+            ]
+            }) }}
+
+            {{ govukSummaryList({
+            card: {
+                title: {
+                    text: "Format and delivery details"
+                }
+            },
+            rows: [
+                {
+                    key: {
+                        text: "How do you want to receive your call recording?"
+                    },
+                    value: {
+                        text: data['callRecordingFormat']
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "What is your email address?"
+                    },
+                    value: {
+                        text: data['emailAddress']
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                }
+            ]
+            }) }}
+
+            <h2 class="govuk-heading-m">
+                Now continue to enter the details for:
+            </h2>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Assessment reports</li>
+            </ul>
+
+            <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/written-documents/tell-us-more-about-your-request" method="post">
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
