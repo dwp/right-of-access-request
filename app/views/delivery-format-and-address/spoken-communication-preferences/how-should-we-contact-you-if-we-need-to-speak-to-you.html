@@ -4,7 +4,7 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "How should we contact you if we need more information?" %}
+{% set pageName = "How should we notify you the progress of your application?" %}
 
 {% set phoneHtml %}
 {{ govukInput({
@@ -34,13 +34,14 @@
             classes: "govuk-fieldset__legend--l"
           }
         },
-        hint: {
-          text: "We usually contact people by phone, but you can let us know if you need something  different. Select the option that best suits your needs."
-        },
         items: [
           {
-            value: "phoneCall",
-            text: "Standard phone call",
+            value: "email",
+            text: "Email"
+          },
+          {
+            value: "phone",
+            text: "Phone",
             conditional: {
               html: phoneHtml
             }
