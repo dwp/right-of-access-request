@@ -9,10 +9,10 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/types-of-information-uc" method="post">
+        <form class="form" action="/what-other-format" method="post">
 
             {{ govukRadios({
-                name: "otherHelp",
+                name: "otherFormat",
                 fieldset: {
                     legend: {
                     text: pageName,
@@ -25,24 +25,24 @@
                 },
                 items: [
                     {
-                    value: "standardDocument",
-                    text: "Standard document (12-point Arial text on paper)"
+                        value: "standardDocument",
+                        text: "Standard document (12-point Arial text on paper)"
                     },
                     {
-                    value: "letterWithChanges",
-                    text: "Letter with changes to font, paper colour, spacing or print size"
+                        value: "letterWithChanges",
+                        text: "Letter with changes to font, paper colour, spacing or print size"
                     },
                     {
-                    value: "audio",
-                    text: "Audio"
+                        value: "audio",
+                        text: "Audio"
                     },
                     {
-                    value: "braille",
-                    text: "Braille"
+                        value: "braille",
+                        text: "Braille"
                     },
                     {
-                    value: "bsl",
-                    text: "British Sign Language video"
+                        value: "bsl",
+                        text: "British Sign Language video"
                     }
                 ]
             }) }}

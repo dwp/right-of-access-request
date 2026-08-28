@@ -5,29 +5,11 @@
 
 {% set pageName = "Check your answers" %}
 
-{% set monthNames = {
-    "1": "January",
-    "01": "January",
-    "2": "February",
-    "02": "February",
-    "3": "March",
-    "03": "March",
-    "4": "April",
-    "04": "April",
-    "5": "May",
-    "05": "May",
-    "6": "June",
-    "06": "June",
-    "7": "July",
-    "07": "July",
-    "8": "August",
-    "08": "August",
-    "9": "September",
-    "09": "September",
-    "10": "October",
-    "11": "November",
-    "12": "December"
-} %}
+{% if data.selectFormat == "altFormat" %}
+    {% set formatValue = data.otherHelp %}
+{% else %}
+    {% set formatValue = "PDF" %}
+{% endif %}
 
 {% block content %}
 
@@ -45,16 +27,16 @@
             {{ govukSummaryList({
             card: {
                 title: {
-                    text: "Recordings of calls with DWP"
+                    text: "Details of requested documents"
                 }
             },
             rows: [
                 {
                     key: {
-                        text: "How many calls is this request about?"
+                        text: "Type of information"
                     },
                     value: {
-                        html: "One"
+                        html: "Assessment reports"
                     },
                     actions: {
                         items: [
@@ -68,46 +50,10 @@
                 },
                 {
                     key: {
-                        text: "What phone number did you use for the call?"
+                        text: "Details about the information"
                     },
                     value: {
-                        text: data['phoneNumber']
-                    },
-                    actions: {
-                        items: [
-                        {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "age"
-                        }
-                        ]
-                    }
-                },
-                {
-                    key: {
-                        text: "When did the call happen?"
-                    },
-                    value: {
-                        text: data['date-call-taken-place-day'] + ' ' +
-                        monthNames[data['date-call-taken-place-month']] + ' ' +
-                        data['date-call-taken-place-year']
-                    },
-                    actions: {
-                        items: [
-                        {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "age"
-                        }
-                        ]
-                    }
-                },
-                {
-                    key: {
-                        text: "More details about the call"
-                    },
-                    value: {
-                        text: data['callDetail']
+                        html: "I need my PIP award notices and payment history from 1 April 2023 to 31 March 2025."
                     },
                     actions: {
                         items: [
@@ -131,10 +77,10 @@
             rows: [
                 {
                     key: {
-                        text: "How do you want to receive your call recording?"
+                        text: "How should we provide your information?"
                     },
                     value: {
-                        text: data['callRecordingFormat']
+                        text: "Letter with changes to font, paper colour, spacing or print size"
                     },
                     actions: {
                         items: [
@@ -148,10 +94,46 @@
                 },
                 {
                     key: {
-                        text: "What is your email address?"
+                        text: "What changes do you need?"
                     },
                     value: {
-                        text: data['emailAddress']
+                        text: "Coloured paper"
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "What colour paper do you need?"
+                    },
+                    value: {
+                        text: "Cream"
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Where should we send your information?"
+                    },
+                    value: {
+                        html: "123 Maple Street<br>
+                        Manchester<br>
+                        M23 9TX"
                     },
                     actions: {
                         items: [
@@ -171,10 +153,10 @@
             </h2>
 
             <ul class="govuk-list govuk-list--bullet">
-                <li>Assessment reports</li>
+                <li>Universal Credit</li>
             </ul>
 
-            <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/written-documents/tell-us-more-about-your-request" method="post">
+            <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/types-of-information-uc" method="post">
                 {{ govukButton({
                     text: "Continue"
                 }) }}

@@ -192,7 +192,7 @@ router.post('/name-a-dwp-payment', function(request, response) {
 //Route for How should we provide your information?
 router.post('/select-written-format', function(request, response) {
 
-    var selectFormat = request.session.data['select-format']
+    var selectFormat = request.session.data['selectFormat']
     if (selectFormat == "PDF"){
         response.redirect("/delivery-format-and-address/written-communication-preferences/do-you-need-an-accessible-pdf")
     } else if (selectFormat == "microsoftWordDoc")  {
@@ -212,6 +212,21 @@ router.post('/contact-preferences', function(request, response) {
         response.redirect("/cyi/confirm-your-identity")
     }
 })
+
+//Route for What format do you need?
+router.post('/what-other-format', function(request, response) {
+
+    var otherFormat = request.session.data['otherFormat']
+    if (otherFormat == "letterWithChanges"){
+        response.redirect("/delivery-format-and-address/written-communication-preferences/what-changes-do-you-need")
+    } else if (otherFormat == "braille")  {
+        response.redirect("/delivery-format-and-address/written-communication-preferences/what-type-of-braille-do-you-need")
+    } else {
+        response.redirect("/delivery-format-and-address/where-should-we-send-your-information")
+    }
+})
+
+
 
 
 
