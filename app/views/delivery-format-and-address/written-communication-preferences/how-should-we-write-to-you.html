@@ -20,21 +20,20 @@
                     classes: "govuk-fieldset__legend--l"
                     }
                 },
-                hint: {
-                    text: "If you choose PDF or Word doc, we will send you a link to download your information from a secure web page. If you choose another format, we'll send it by post."
-                },
                 items: [
                     {
                         value: "PDF",
-                        text: "PDF"
-                    },
-                    {
-                        value: "microsoftWordDoc",
-                        text: "Microsoft Word document"
+                        text: "PDF",
+                        hint: {
+                            text: "We'll send you a secure link through email to download your information."
+                        }
                     },
                     {
                         value: "altFormat",
-                        text: "Another format"
+                        text: "Another format",
+                        hint: {
+                            text: "We'll send it to you by post."
+                        }
                     }
                 ]
             }) }}

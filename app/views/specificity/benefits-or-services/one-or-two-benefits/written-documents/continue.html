@@ -1,0 +1,55 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "Continue to select the information you need for:" %}
+
+{% set benefitLabels = {
+  "accessToWork": "Access to Work",
+  "attendanceAllowance": "Attendance Allowance",
+  "bereavementBenefit": "Bereavement Benefit",
+  "carersAllowance": "Carers Allowance",
+  "childMaintenanceService": "Child Maintenance Service",
+  "disabilityLivingAllowance": "Disability Living Allowance (DLA)",
+  "employmentAndSupportAllowance": "Employment and Support Allowance (ESA)",
+  "incapacityBenefit": "Incapacity Benefit",
+  "incomeSupport": "Income Support",
+  "industrialInjuriesSchemeBenefit": "Industrial Injuries Scheme Benefit (IISB)",
+  "jobseekersAllowance": "Jobseeker’s Allowance (JSA)",
+  "maternityAllowance": "Maternity Allowance",
+  "pensionCredit": "Pension Credit (PC)",
+  "personalInjuryCompensation": "Personal injury compensation (Compensation Recovery Unit)",
+  "personalIndependencePayment": "Personal Independence Payment (PIP)",
+  "severeDisablementAllowance": "Severe Disablement Allowance (SDA)",
+  "socialFund": "Social Fund",
+  "statePension": "State Pension",
+  "universalCredit": "Universal Credit",
+  "widowsBenefit": "Widow’s Benefit"
+} %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/types-of-information-uc" method="post">
+
+      <h1 class="govuk-heading-l">
+        {{ pageName }}
+      </h1>
+
+      <ul class="govuk-list govuk-list--bullet">
+      {% if data['benefitsOrServicesList'][1] %}
+        <li>{{ benefitLabels[data['benefitsOrServicesList'][1]] }}</li>
+      {% endif %}
+      </ul>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

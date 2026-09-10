@@ -1,0 +1,49 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "How do you want to receive your call recording?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/call-recordings/one/summary-list-pip" method="post">
+
+      {{ govukRadios({
+        name: "callRecordingFormat",
+        fieldset: {
+          legend: {
+            html: "<span class='govuk-caption-l'>Personal Independent Payment (PIP)</span>" ~ pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Digital audio file (MP3)",
+            text: "Digital audio file (MP3)",
+            hint: {
+              text: "We’ll send a link to your email to download a file"
+            }
+          },
+          {
+            value: "CD (compact disc)",
+            text: "CD (compact disc)",
+            hint: {
+              text: "We’ll post a CD to the address you give us"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

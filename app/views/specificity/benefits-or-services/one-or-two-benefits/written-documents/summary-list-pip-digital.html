@@ -1,15 +1,8 @@
 {% extends "layouts/user-journey.html" %}
 
 {% set phaseBanner = 'true' %}
-{% set backLink = 'true' %}
 
 {% set pageName = "Check your answers" %}
-
-{% if data.selectFormat == "altFormat" %}
-    {% set formatValue = data.otherHelp %}
-{% else %}
-    {% set formatValue = "PDF" %}
-{% endif %}
 
 {% block content %}
 
@@ -80,7 +73,7 @@
                         text: "How should we provide your information?"
                     },
                     value: {
-                        text: "Letter with changes to font, paper colour, spacing or print size"
+                        html: "PDF"
                     },
                     actions: {
                         items: [
@@ -94,46 +87,10 @@
                 },
                 {
                     key: {
-                        text: "What changes do you need?"
+                        text: "Do you need an accessible pdf?"
                     },
                     value: {
-                        text: "Coloured paper"
-                    },
-                    actions: {
-                        items: [
-                        {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "age"
-                        }
-                        ]
-                    }
-                },
-                {
-                    key: {
-                        text: "What colour paper do you need?"
-                    },
-                    value: {
-                        text: "Cream"
-                    },
-                    actions: {
-                        items: [
-                        {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "age"
-                        }
-                        ]
-                    }
-                },
-                {
-                    key: {
-                        text: "Where should we send your information?"
-                    },
-                    value: {
-                        html: "123 Maple Street<br>
-                        Manchester<br>
-                        M23 9TX"
+                        text: data['accessiblePdfOrNot']
                     },
                     actions: {
                         items: [
@@ -148,15 +105,7 @@
             ]
             }) }}
 
-            <h2 class="govuk-heading-m">
-                Now continue to enter the details for:
-            </h2>
-
-            <ul class="govuk-list govuk-list--bullet">
-                <li>Universal Credit</li>
-            </ul>
-
-            <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/types-of-information-uc" method="post">
+            <form class="form" action="continue" method="post">
                 {{ govukButton({
                     text: "Continue"
                 }) }}

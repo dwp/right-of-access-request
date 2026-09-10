@@ -125,7 +125,7 @@
             {{ govukSummaryList({
             card: {
                 title: {
-                    text: "Format and delivery details"
+                    text: "Format details"
                 }
             },
             rows: [
@@ -145,36 +145,11 @@
                         }
                         ]
                     }
-                },
-                {
-                    key: {
-                        text: "What is your email address?"
-                    },
-                    value: {
-                        text: data['emailAddress']
-                    },
-                    actions: {
-                        items: [
-                        {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "age"
-                        }
-                        ]
-                    }
                 }
             ]
             }) }}
 
-            <h2 class="govuk-heading-m">
-                Now continue to enter the details for:
-            </h2>
-
-            <ul class="govuk-list govuk-list--bullet">
-                <li>Assessment reports</li>
-            </ul>
-
-            <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/written-documents/tell-us-more-about-your-request" method="post">
+            <form class="form" action="continue" method="post">
                 {{ govukButton({
                     text: "Continue"
                 }) }}

@@ -3,7 +3,16 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "Tell us more about the documents you are requesting" %}
+{% set pageName = "Tell us about the documents you need" %}
+
+{% set itemLabels = {
+    "applicationOrClaimInformation": "Your application or claim information",
+    "assessmentReports": "Assessment reports",
+    "evidences": "Evidence you've sent us",
+    "caseNotes": "Notes about your claim",
+    "lettersFormsMessages": "Letters, forms and messages from DWP",
+    "decisions": "Decisions about your claim"
+} %}
 
 {% block content %}
 
@@ -21,8 +30,8 @@
             </p>
 
             <ul class="govuk-list govuk-list--bullet">
-                <li>what information you need</li>
-                <li>the time period that the information should cover</li>
+                <li>the time period that the documents should cover</li>
+                <li>any other supporting information that would help us find your documents faster</li>
             </ul>
 
             <p class="govuk-body">
@@ -32,6 +41,21 @@
             {% call govukInsetText() %}
                 "I need my PIP award notices and payment history from 1 April 2023 to 31 March 2025."
             {% endcall %}
+
+
+            {% if data ['typesOfInformationPip'] %}
+            <p class="govuk-body">
+                You've selected to request the following documents:
+            </p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                {% for item in data['typesOfInformationPip'] %}
+                    {% if item != "callRecordings" %}
+                        <li>{{ itemLabels[item] }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
 
 
             {{ govukTextarea({

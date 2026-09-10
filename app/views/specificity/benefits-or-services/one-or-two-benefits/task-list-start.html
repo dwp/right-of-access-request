@@ -3,20 +3,20 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "Select the types of information you want to request for Universal Credit" %}
+{% set pageName = "Select the types of information you want to request" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/call-recordings/how-many-calls-is-this-request-about-uc" method="post">
+    <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/call-recordings/how-many-calls-is-this-request-about-pip" method="post">
 
       {{ govukCheckboxes({
-        name: "typesOfInformation",
+        name: "typesOfInformationPip",
         fieldset: {
           legend: {
             html: '
-              <span class="govuk-caption-l">Universal Credit</span>
+              <span class="govuk-caption-l">Personal Independence Payment (PIP)</span>
               ' + pageName + '
             ',
             isPageHeading: true,
@@ -28,48 +28,32 @@
         },
         items: [
           {
-            value: "call-recordings",
+            value: "callRecordings",
             text: "Recordings of calls with DWP"
           },
           {
-            value: "call-recordings",
+            value: "applicationOrClaimInformation",
             text: "Your application or claim information"
           },
           {
-            value: "case-notes",
-            text: "Payment history and statements"
-          },
-          {
-            value: "case-notes",
-            text: "Overpayments and repayments"
-          },
-          {
-            value: "case-notes",
-            text: "Evidence you’ve sent us"
-          },
-          {
-            value: "case-notes",
+            value: "assessmentReports",
             text: "Assessment reports"
           },
           {
-            value: "case-notes",
-            text: "Your self-employed earnings information"
+            value: "evidences",
+            text: "Evidence you've sent us"
           },
           {
-            value: "case-notes",
-            text: "Journal entries"
-          },
-          {
-            value: "case-notes",
+            value: "caseNotes",
             text: "Notes about your claim"
           },
           {
-            value: "case-notes",
-            text: "Decisions, mandatory reconsiderations and appeals"
+            value: "lettersFormsMessages",
+            text: "Letters, forms and messages from DWP"
           },
           {
-            value: "case-notes",
-            text: "Universal Credit claim reviews"
+            value: "decisions",
+            text: "Decisions about your claim"
           },
           {
             divider: "or"

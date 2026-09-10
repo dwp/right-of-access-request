@@ -3,13 +3,13 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "Do you need an accessible PDF?" %}
+{% set pageName = "Do you need a web-accessible PDF?" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/written-documents/summary-list-pip" method="post">
+        <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/written-documents/summary-list-pip-digital" method="post">
 
             {{ govukRadios({
                 classes: "govuk-radios--inline",
@@ -21,13 +21,16 @@
                     classes: "govuk-fieldset__legend--l"
                     }
                 },
+                hint: {
+                    text: "For use with assistive software. For example, Dragon or Jaws."
+                },
                 items: [
                     {
-                        value: "yes",
+                        value: "Yes",
                         text: "Yes"
                     },
                     {
-                        value: "no",
+                        value: "No",
                         text: "No",
                         checked: true
                     }

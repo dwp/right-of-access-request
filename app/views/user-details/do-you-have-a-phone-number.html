@@ -4,7 +4,7 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "How should we notify you the progress of your application?" %}
+{% set pageName = "Do you have a phone number?" %}
 
 {% set phoneHtml %}
 {{ govukInput({
@@ -14,7 +14,7 @@
   autocomplete: "tel",
   classes: "govuk-!-width-one-third",
   label: {
-    text: "UK phone number"
+    text: "Enter your UK phone number"
   }
 }) }}
 {% endset -%}
@@ -23,10 +23,10 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="/contact-preferences" method="post">
+    <form class="form" action="/phone-number" method="post">
 
       {{ govukRadios({
-        name: "contact-preferences",
+        name: "do-you-have-phone-number",
         fieldset: {
           legend: {
             text: pageName,
@@ -36,19 +36,15 @@
         },
         items: [
           {
-            value: "email",
-            text: "Email"
-          },
-          {
-            value: "phone",
-            text: "Phone",
+            value: "Yes",
+            text: "Yes",
             conditional: {
               html: phoneHtml
             }
           },
           {
-            value: "byPost",
-            text: "By post"
+            value: "No, contact me by post",
+            text: "No, contact me by post"
           },
           {
             divider: "or"

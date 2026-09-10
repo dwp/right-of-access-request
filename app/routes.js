@@ -52,6 +52,17 @@ router.post('/is-address-in-uk', function(request, response) {
     }
 })
 
+//Route for do you have a phone number?
+router.post('/phone-number', function(request, response) {
+
+    var phoneNumber = request.session.data['do-you-have-phone-number']
+    if (phoneNumber == "iNeedSomethingDifferent"){
+        response.redirect("/user-details/what-do-you-need")
+    } else {
+        response.redirect("/user-details/do-you-have-a-ni-number")
+    }
+})
+
 //Route for Do you have a NI number?
 router.post('/do-you-have-ni-number', function(request, response) {
 
@@ -222,11 +233,6 @@ router.post('/what-other-format', function(request, response) {
     } else if (otherFormat == "braille")  {
         response.redirect("/delivery-format-and-address/written-communication-preferences/what-type-of-braille-do-you-need")
     } else {
-        response.redirect("/delivery-format-and-address/where-should-we-send-your-information")
+        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/written-documents/summary-list-pip-print")
     }
 })
-
-
-
-
-
