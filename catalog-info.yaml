@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: Right.Of.Access.Request.Prototype
+  name: right.of.access.request.prototype
   title: Right-of-Access-Request-Prototype
   description: |
     Prototype to explore design options of Right of access request online journey.
@@ -14,7 +14,7 @@ metadata:
     dwp.gov.uk/license: unknown
 
     dwp.gov.uk/last-verified.by: Rinto Cyriac
-    dwp.gov.uk/last-verified.on: 2026-08-11
+    dwp.gov.uk/last-verified.on: 2026-09-10
 
     dwp.gov.uk/open-source.approved: "true"
     dwp.gov.uk/open-source.location: none
@@ -31,7 +31,7 @@ metadata:
   links:
     - icon: externalLink
       title: Repository
-      url: https://gitlab.com/dwp/user-centred-design/right-of-access-request
+      url: https://dwp.gitlab-dedicated.com/dwp/user-centred-design/right-of-access-request
 
 spec:
   owner: group:default/backstage.group.user-centred-design
