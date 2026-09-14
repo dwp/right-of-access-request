@@ -88,15 +88,36 @@ router.post('/what-personal-information-you-need', function(request, response) {
 
 //Specificity
 //Route for Which benefit or service is your request about?
-router.post('/benefits-or-services-list', function(request, response) {
+router.post('/benefits-or-services-list', function (req, res) {
+    // Get the selected checkbox values
+    const benefits = req.session.data['benefitsOrServicesList'] || []
 
-    var benefitList = request.session.data['benefitsOrServicesList']
-    if (benefitList == "universalCredit"){
-        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/types-of-information-uc")
-    } else {
-        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/types-of-information-pip")
+    // Check if any selected benefit is NOT PIP or UC
+    const hasOtherBenefits = benefits.some(
+        benefitName => !['personalIndependencePayment', 'universalCredit'].includes(benefitName)
+    )
+
+    // PIP + anything else = Other Benefits
+    // UC + anything else = Other Benefits
+    // Any other benefit on its own = Other Benefits
+    if (hasOtherBenefits) {
+        return res.redirect('/specificity/benefits-or-services/edge-cases/types-of-information')
     }
+
+    // PIP only OR PIP + UC
+    if (benefits.includes('personalIndependencePayment')) {
+        return res.redirect('/specificity/benefits-or-services/one-or-two-benefits/types-of-information-pip')
+    }
+
+    // UC only
+    if (benefits.includes('universalCredit')) {
+        return res.redirect('/specificity/benefits-or-services/one-or-two-benefits/types-of-information-uc')
+    }
+
+    // Fallback
+    res.redirect('/specificity/benefits-or-services/edge-cases/types-of-information')
 })
+
 
 //Route for How many calls is this request about?
 router.post('/how-many-calls', function(request, response) {

@@ -1,0 +1,56 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "Which format do you need?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/select-written-format" method="post">
+
+            {{ govukRadios({
+                name: "selectFormat",
+                fieldset: {
+                    legend: {
+                    text: pageName,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    text: "Some formats are provided through a secure download link sent by email. Others are by post."
+                },
+                items: [
+                    {
+                        value: "PDF",
+                        text: "Digital document",
+                        hint: {
+                            text: "You'll receive an email with a link to a secure web page where you can download your digital documents in Portable Document Format (PDF). You will not receive your documents as an email attachment."
+                        }
+                    },
+                    {
+                        value: "altFormat",
+                        text: "Printed document (12-point Arial text on white paper)",
+                        hint: {
+                            text: "You'll receive this by post"
+                        }
+                    },
+                    {
+                        value: "altFormat",
+                        text: "Another format"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
