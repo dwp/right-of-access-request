@@ -1,7 +1,6 @@
 {% extends "layouts/user-journey.html" %}
 
 {% set phaseBanner = 'true' %}
-{% set backLink = 'true' %}
 
 {% set pageName = "Check your answers" %}
 
@@ -12,12 +11,15 @@
 {% endif %}
 
 {% set infoTypeLabels = {
-    "applicationOrClaimInformation": "Your application or claim information",
-    "assessmentReports": "Assessment reports",
-    "evidences": "Evidence you've sent us",
-    "caseNotes": "Notes about your claim",
-    "lettersFormsMessages": "Letters, forms and messages from DWP",
-    "decisions": "Decisions about your claim",
+    "your-application-or-claim-information": "Your application or claim information",
+    "payment-history": "Payment history and statements",
+    "overpayments": "Overpayments and repayments",
+    "evidence": "Evidence you’ve sent us",
+    "assessment-reports": "Assessment reports",
+    "earnings": "Your self-employed earnings information",
+    "journal-entries": "Journal entries",
+    "case-notes": "Notes about your claim",
+    "decisions": "Decisions, mandatory reconsiderations and appeals",
     "something-else": "Something else"
 } %}
 
@@ -31,7 +33,7 @@
 
 {% set infoListHtml %}
 <ul class="govuk-list govuk-list--bullet">
-    {% for item in data['typesOfInformationPip'] %}
+    {% for item in data['typesOfInformationUC'] %}
         {% if item != "callRecordings" %}
             <li>{{ infoTypeLabels[item] }}</li>
         {% endif %}
@@ -49,7 +51,7 @@
             </h1>
 
             <h2 class="govuk-heading-m">
-                Personal Independence Payment (PIP)
+                Universal Credit
             </h2>
 
             {{ govukSummaryList({
@@ -81,7 +83,7 @@
                         text: "Details about the information"
                     },
                     value: {
-                        text: data['moreDetailPIP']
+                        text: data['moreDetailUC']
                     },
                     actions: {
                         items: [
@@ -123,7 +125,7 @@
             ]
             }) }}
 
-            <form class="form" action="continue" method="post">
+            <form class="form" action="/delivery-format-and-address/digital-delivery/what-is-your-email-address" method="post">
                 {{ govukButton({
                     text: "Continue"
                 }) }}

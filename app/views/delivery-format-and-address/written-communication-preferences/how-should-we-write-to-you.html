@@ -5,6 +5,12 @@
 
 {% set pageName = "How should we provide your information?" %}
 
+{% set captions = {
+    "personalIndependencePayment": "Personal Independence Payment (PIP)",
+    "universalCredit": "Universal Credit"
+} %}
+{% set captionText = captions[data.currentBenefit] %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -15,9 +21,9 @@
                 name: "selectFormat",
                 fieldset: {
                     legend: {
-                    text: pageName,
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
+                        html: "<span class='govuk-caption-l'>" ~ captionText ~ "</span>" ~ pageName,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
                     }
                 },
                 items: [

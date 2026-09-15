@@ -5,20 +5,25 @@
 
 {% set pageName = "Do you need a web-accessible PDF?" %}
 
+{% set captionText = "Personal Independence Payment (PIP)" %}
+{% if "universalCredit" in data['benefitsOrServicesList'] %}
+    {% set captionText = "Universal Credit" %}
+{% endif %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/written-documents/summary-list-pip-digital" method="post">
+        <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/written-documents/summary-list-uc-digital" method="post">
 
             {{ govukRadios({
                 classes: "govuk-radios--inline",
                 name: "accessiblePdfOrNot",
                 fieldset: {
                     legend: {
-                    text: pageName,
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
+                        html: "<span class='govuk-caption-l'>" ~ captionText ~ "</span>" ~ pageName,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
                     }
                 },
                 hint: {

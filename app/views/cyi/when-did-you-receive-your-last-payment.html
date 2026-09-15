@@ -28,21 +28,32 @@
                 },
                 items: [
                     {
-                    name: "day",
-                    classes: "govuk-input--width-2",
-                    autocomplete: "bday-day"
+                        name: "day",
+                        classes: "govuk-input--width-2",
+                        autocomplete: "bday-day"
                     },
                     {
-                    name: "month",
-                    classes: "govuk-input--width-2",
-                    autocomplete: "bday-month"
+                        name: "month",
+                        classes: "govuk-input--width-2",
+                        autocomplete: "bday-month"
                     },
                     {
-                    name: "year",
-                    classes: "govuk-input--width-4",
-                    autocomplete: "bday-year"
+                        name: "year",
+                        classes: "govuk-input--width-4",
+                        autocomplete: "bday-year"
                     }
                 ]
+            }) }}
+
+            {{ govukCheckboxes({
+            idPrefix: "dontKnowPayment",
+            name: "dontKnowPayment",
+            items: [
+                {
+                    value: "yes",
+                    text: "I don't have this information"
+                }
+            ]
             }) }}
 
             {{ govukButton({

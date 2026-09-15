@@ -257,3 +257,21 @@ router.post('/what-other-format', function(request, response) {
         response.redirect("/specificity/benefits-or-services/one-or-two-benefits/written-documents/summary-list-pip-print")
     }
 })
+
+router.post('/last-payment-check', function (req, res) {
+    const dontKnowPayment = req.session.data['dontKnowPayment']
+    if (dontKnowPayment && dontKnowPayment.includes('yes')) {
+        return res.redirect('/application-complete')
+    }
+    res.redirect('/cyi/when-did-you-receive-your-last-payment')
+})
+
+router.post('/pip-information', function (req, res) {
+    req.session.data.currentBenefit = 'personalIndependencePayment'
+        res.redirect('/delivery-format-and-address/written-communication-preferences/how-should-we-write-to-you')
+})
+
+router.post('/uc-information', function (req, res) {
+    req.session.data.currentBenefit = 'universalCredit'
+        res.redirect('/delivery-format-and-address/written-communication-preferences/how-should-we-write-to-you')
+})

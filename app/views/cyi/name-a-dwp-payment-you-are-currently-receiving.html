@@ -4,7 +4,7 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set pageName = "Select a DWP payment you have received in the last 6 months" %}
+{% set pageName = "Select one payment you received in the last 6 months." %}
 
 {% set benefitNameHtml %}
 {{ govukInput({
@@ -31,9 +31,6 @@
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
                 }
-            },
-            hint: {
-                text: "Select one option"
             },
             items: [
                 {

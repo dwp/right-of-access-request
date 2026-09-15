@@ -9,10 +9,10 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/call-recordings/how-many-calls-is-this-request-about-uc" method="post">
+    <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/written-documents/tell-us-more-about-your-request-uc" method="post">
 
       {{ govukCheckboxes({
-        name: "typesOfInformation",
+        name: "typesOfInformationUC",
         fieldset: {
           legend: {
             html: '
@@ -32,31 +32,31 @@
             text: "Recordings of calls with DWP"
           },
           {
-            value: "call-recordings",
+            value: "your-application-or-claim-information",
             text: "Your application or claim information"
           },
           {
-            value: "case-notes",
+            value: "payment-history",
             text: "Payment history and statements"
           },
           {
-            value: "case-notes",
+            value: "overpayments",
             text: "Overpayments and repayments"
           },
           {
-            value: "case-notes",
+            value: "evidence",
             text: "Evidence you’ve sent us"
           },
           {
-            value: "case-notes",
+            value: "assessment-reports",
             text: "Assessment reports"
           },
           {
-            value: "case-notes",
+            value: "earnings",
             text: "Your self-employed earnings information"
           },
           {
-            value: "case-notes",
+            value: "journal-entries",
             text: "Journal entries"
           },
           {
@@ -64,11 +64,11 @@
             text: "Notes about your claim"
           },
           {
-            value: "case-notes",
+            value: "decisions",
             text: "Decisions, mandatory reconsiderations and appeals"
           },
           {
-            value: "case-notes",
+            value: "claim-reviews",
             text: "Universal Credit claim reviews"
           },
           {

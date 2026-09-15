@@ -1,8 +1,23 @@
 {% extends "layouts/user-journey.html" %}
 
 {% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
 
 {% set pageName = "Check your answers" %}
+
+{% if data.selectFormat == "altFormat" %}
+    {% set formatValue = data.otherHelp %}
+{% else %}
+    {% set formatValue = "PDF" %}
+{% endif %}
+
+{% set formatLabels = {
+    "standardDocument": "Standard document (12-point Arial text on paper)",
+    "letterWithChanges": "Letter with changes to font, paper colour, spacing or print size",
+    "audio": "Audio",
+    "braille": "Braille",
+    "bsl": "British Sign Language video"
+} %}
 
 {% block content %}
 
