@@ -118,6 +118,34 @@ router.post('/benefits-or-services-list', function (req, res) {
     res.redirect('/specificity/benefits-or-services/edge-cases/types-of-information')
 })
 
+//Route for Select the types of information you want to request for Personal Independence Payment
+router.post('/pip-call-or-documents', function(request, response) {
+
+    console.log(request.session.data['typesOfInformationPip'])
+
+    const callOrDocument = request.session.data['typesOfInformationPip'] || []
+
+    if (callOrDocument.includes('callRecordings')) {
+        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/call-recordings/how-many-calls-is-this-request-about-pip")
+    } else {
+        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/written-documents/tell-us-more-about-your-request-pip")
+    }
+})
+
+//Route for Select the types of information you want to request for Universal Credit
+router.post('/uc-call-or-documents', function(request, response) {
+
+    console.log(request.session.data['typesOfInformationUC'])
+
+    const callOrDocument = request.session.data['typesOfInformationUC'] || []
+
+    if (callOrDocument.includes('call-recordings')) {
+        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/call-recordings/how-many-calls-is-this-request-about-uc")
+    } else {
+        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/written-documents/tell-us-more-about-your-request-uc")
+    }
+})
+
 
 //Route for How many calls is this request about?
 router.post('/how-many-calls', function(request, response) {
@@ -221,10 +249,74 @@ router.post('/name-a-dwp-payment', function(request, response) {
     }
 })
 
+
+//Route for checking whether a written document format has already been selected, if it has, then user should go to Summary page after entering their document details for UC
+router.post('/uc-tell-us-more-about-documents', function (req, res) {
+
+    req.session.data.currentBenefit = 'universalCredit'
+
+    const informationFormat =
+        req.session.data['selectFormat']
+
+    if (informationFormat) {
+        res.redirect('/specificity/benefits-or-services/one-or-two-benefits/written-documents/summary-list-uc-print')
+    } else {
+        res.redirect('/delivery-format-and-address/written-communication-preferences/how-should-we-write-to-you')
+    }
+
+})
+
+//Route for summary list - PIP - digital
+router.post('/email-address-collection-or-continue-to-uc', function(request, response) {
+
+    var emailOrContinue = request.session.data['benefitsOrServicesList']
+    
+    if (emailOrContinue == "universalCredit"){
+        response.redirect("/specificity/benefits-or-services/one-or-two-benefits/written-documents/continue")
+    } else {
+        response.redirect("/delivery-format-and-address/digital-delivery/what-is-your-email-address")
+    }
+})
+
+//Route for summary list - PIP - print
+router.post('/postal-address-collection-or-continue-to-uc', function(request, response) {
+
+    const postalOrContinue = request.session.data['benefitsOrServicesList'] || []
+
+    console.log(request.session.data['benefitsOrServicesList'])
+
+    if (postalOrContinue.includes('universalCredit')) {
+        response.redirect('/specificity/benefits-or-services/one-or-two-benefits/written-documents/continue')
+    } else {
+        response.redirect('/delivery-format-and-address/where-should-we-send-your-information')
+    }
+})
+
+
+
+//Route for We have confirmed your email address
+router.post('/cyi-or-postal-address-collection', function(req, res) {
+
+    const cyiOrPostalAddress = req.session.data['selectFormat']
+
+    if (cyiOrPostalAddress === 'altFormat') {
+        res.redirect('/delivery-format-and-address/where-should-we-send-your-information')
+    } else {
+        res.redirect('/cyi/confirm-your-identity')
+    }
+})
+
+//Route for adding Personal Independece Payment (PIP) caption to How should we provide your information
+router.post('/pip-tell-us-more-about-documents', function (req, res) {
+    req.session.data.currentBenefit = 'personalIndependencePayment'
+        res.redirect('/delivery-format-and-address/written-communication-preferences/how-should-we-write-to-you')
+})
+
 //Route for How should we provide your information?
 router.post('/select-written-format', function(request, response) {
 
     var selectFormat = request.session.data['selectFormat']
+
     if (selectFormat == "PDF"){
         response.redirect("/delivery-format-and-address/written-communication-preferences/do-you-need-an-accessible-pdf")
     } else if (selectFormat == "microsoftWordDoc")  {
@@ -238,6 +330,7 @@ router.post('/select-written-format', function(request, response) {
 router.post('/contact-preferences', function(request, response) {
 
     var contactPreferences = request.session.data['contact-preferences']
+
     if (contactPreferences == "iNeedSomethingDifferent"){
         response.redirect("/delivery-format-and-address/spoken-communication-preferences/what-do-you-need")
     } else {
@@ -249,6 +342,7 @@ router.post('/contact-preferences', function(request, response) {
 router.post('/what-other-format', function(request, response) {
 
     var otherFormat = request.session.data['otherFormat']
+
     if (otherFormat == "letterWithChanges"){
         response.redirect("/delivery-format-and-address/written-communication-preferences/what-changes-do-you-need")
     } else if (otherFormat == "braille")  {
@@ -258,20 +352,13 @@ router.post('/what-other-format', function(request, response) {
     }
 })
 
+//Route for skipping the second KBV question if the user does not have the payment information – this route checks whether they need to be sent to Application complete page or not
 router.post('/last-payment-check', function (req, res) {
+
     const dontKnowPayment = req.session.data['dontKnowPayment']
+
     if (dontKnowPayment && dontKnowPayment.includes('yes')) {
         return res.redirect('/application-complete')
     }
     res.redirect('/cyi/when-did-you-receive-your-last-payment')
-})
-
-router.post('/pip-information', function (req, res) {
-    req.session.data.currentBenefit = 'personalIndependencePayment'
-        res.redirect('/delivery-format-and-address/written-communication-preferences/how-should-we-write-to-you')
-})
-
-router.post('/uc-information', function (req, res) {
-    req.session.data.currentBenefit = 'universalCredit'
-        res.redirect('/delivery-format-and-address/written-communication-preferences/how-should-we-write-to-you')
 })

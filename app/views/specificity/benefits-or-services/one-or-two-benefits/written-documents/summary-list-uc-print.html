@@ -4,12 +4,6 @@
 
 {% set pageName = "Check your answers" %}
 
-{% if data.selectFormat == "altFormat" %}
-    {% set formatValue = data.otherHelp %}
-{% else %}
-    {% set formatValue = "PDF" %}
-{% endif %}
-
 {% set infoTypeLabels = {
     "your-application-or-claim-information": "Your application or claim information",
     "payment-history": "Payment history and statements",

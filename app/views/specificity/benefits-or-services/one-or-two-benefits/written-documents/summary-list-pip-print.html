@@ -5,12 +5,6 @@
 
 {% set pageName = "Check your answers" %}
 
-{% if data.selectFormat == "altFormat" %}
-    {% set formatValue = data.otherHelp %}
-{% else %}
-    {% set formatValue = "PDF" %}
-{% endif %}
-
 {% set infoTypeLabels = {
     "applicationOrClaimInformation": "Your application or claim information",
     "assessmentReports": "Assessment reports",
@@ -123,7 +117,7 @@
             ]
             }) }}
 
-            <form class="form" action="continue" method="post">
+            <form class="form" action="/postal-address-collection-or-continue-to-uc" method="post">
                 {{ govukButton({
                     text: "Continue"
                 }) }}
