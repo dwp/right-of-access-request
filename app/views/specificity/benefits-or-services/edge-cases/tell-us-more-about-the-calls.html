@@ -9,7 +9,7 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/call-recordings/how-do-you-want-to-receive-your-call-recording" method="post">
+        <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/call-recordings/how-do-you-want-to-receive-your-call-recording-edge-case" method="post">
 
             <h1 class="govuk-heading-l">
                 {{ pageName }}
@@ -32,8 +32,8 @@
             </ul>
 
             {{ govukTextarea({
-                name: "callDetail",
-                id: "call-detail",
+                name: "EdgeCaseCallDetails",
+                id: "edge-case-call-details",
                 rows: "8",
                 label: {
                 text: "Give as much detail as you can",

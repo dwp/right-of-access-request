@@ -292,8 +292,6 @@ router.post('/postal-address-collection-or-continue-to-uc', function(request, re
     }
 })
 
-
-
 //Route for We have confirmed your email address
 router.post('/cyi-or-postal-address-collection', function(req, res) {
 
@@ -361,4 +359,26 @@ router.post('/last-payment-check', function (req, res) {
         return res.redirect('/application-complete')
     }
     res.redirect('/cyi/when-did-you-receive-your-last-payment')
+})
+
+//Route for Select the type of information you want to request — edge cases
+router.post('/call-recording-or-written-documents', function(request, response) {
+
+    var callOrDocument = request.session.data['typesOfInformation']
+    if (callOrDocument == "writtenDocuments"){
+        response.redirect("/specificity/benefits-or-services/edge-cases/what-information-do-you-need")
+    } else {
+        response.redirect("/specificity/benefits-or-services/edge-cases/tell-us-more-about-the-calls")
+    }
+})
+
+//Route for Tell us more about the calls – edge cases
+router.post('/edge-case-call-recording-summary', function (req, res) {
+
+    const callAndDocument = req.session.data['typesOfInformation']
+
+    if (callAndDocument && callAndDocument.includes('writtenDocuments')) {
+        return res.redirect('/specificity/benefits-or-services/edge-cases/continue')
+    }
+    res.redirect('/delivery-format-and-address/digital-delivery/what-is-your-email-address')
 })

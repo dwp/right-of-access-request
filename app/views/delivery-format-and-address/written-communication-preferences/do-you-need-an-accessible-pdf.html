@@ -14,14 +14,14 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/specificity/benefits-or-services/one-or-two-benefits/written-documents/summary-list-pip-digital" method="post">
+        <form class="form" action="/specificity/benefits-or-services/edge-cases/documents-summary" method="post">
 
             {{ govukRadios({
                 classes: "govuk-radios--inline",
                 name: "accessiblePdfOrNot",
                 fieldset: {
                     legend: {
-                        html: "<span class='govuk-caption-l'>" ~ captionText ~ "</span>" ~ pageName,
+                        text: pageName,
                         isPageHeading: true,
                         classes: "govuk-fieldset__legend--l"
                     }

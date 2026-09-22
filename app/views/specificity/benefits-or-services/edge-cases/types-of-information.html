@@ -9,7 +9,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="benefits-or-services-list" method="post">
+    <form class="form" action="/call-recording-or-written-documents" method="post">
 
       {{ govukCheckboxes({
         name: "typesOfInformation",
@@ -25,7 +25,7 @@
         },
         items: [
           {
-            value: "call-recordings",
+            value: "callRecordings",
             text: "Recordings of calls with DWP"
           },
           {

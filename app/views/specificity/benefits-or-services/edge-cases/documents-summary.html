@@ -1,0 +1,79 @@
+{% extends "layouts/user-journey.html" %}
+
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set pageName = "Check your answers" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+            <h1 class="govuk-heading-l">
+                {{pageName}}
+            </h1>
+
+            {{ govukSummaryList({
+            card: {
+                title: {
+                    text: "Written documents"
+                }
+            },
+            rows: [
+                {
+                    key: {
+                        text: "More details about the documents"
+                    },
+                    value: {
+                        text: data['edgeCaseWrittenDocumentMoreDetail']
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                }
+            ]
+            }) }}
+
+            {{ govukSummaryList({
+            card: {
+                title: {
+                    text: "Format details"
+                }
+            },
+            rows: [
+                {
+                    key: {
+                        text: "How should we provide your information?"
+                    },
+                    value: {
+                        text: data['selectFormat']
+                    },
+                    actions: {
+                        items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "age"
+                        }
+                        ]
+                    }
+                }
+            ]
+            }) }}
+
+            <form class="form" action="/delivery-format-and-address/digital-delivery/what-is-your-email-address" method="post">
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
